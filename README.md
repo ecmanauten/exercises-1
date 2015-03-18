@@ -6,7 +6,7 @@ Clone this repo, install dependencies and run server:
 
     $ git clone https://github.com/mosaic-academy/quizes-and-exercises.git
     $ sudo npm install
-    $ sudo npm start
+    $ npm start
 
 Open `http://localhost:3000` in browser. Enjoy!
 
@@ -39,5 +39,12 @@ Every quiz is essentially an array of functions that return a problem and soluti
 ## Contribute
 There's a plenty of work to do!
 
-### License
+## TODO
+[ ] Add quiz boilerplate
+[ ] Describe `utils` APIs
+
+## Future
+We're planning to develop special _DSL_ (domain specific language) for writing quizes based on markdown and inline JS interpolation. That requires us to develop new AST parser and reactifier.
+
+## License
 [GNU GPL](https://github.com/mosaic-academy/quizes-and-exercises/blob/master/LICENSE)

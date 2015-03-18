@@ -1,0 +1,43 @@
+{
+  "name": "quizes-and-exercises",
+  "version": "0.0.1",
+  "description": "Quizes and exercises for JavaScript",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mosaic-academy/quizes-and-exercises.git"
+  },
+  "keywords": [
+    "javascript",
+    "quizes",
+    "exercises",
+    "mosaic",
+    "academy"
+  ],
+  "author": "Sergey Surganov <surganov@me.com> (http://github.com/surganov)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mosaic-academy/quizes-and-exercises/issues"
+  },
+  "homepage": "http://mosaic.academy",
+  "devDependencies": {
+    "babel-core": "^4.7.4",
+    "babel-loader": "^4.1.0",
+    "react-hot-loader": "^1.2.2",
+    "webpack": "^1.7.2",
+    "webpack-dev-server": "^1.7.0",
+    "coffee-loader": "^0.7.2",
+    "coffee-script": "^1.9.0",
+    "style-loader": "^0.8.3",
+    "less-loader": "^2.0.0",
+    "css-loader": "^0.9.1"
+  },
+  "dependencies": {
+    "marked": "^0.3.3",
+    "react": "^0.12.0",
+    "react-document-title": "^0.1.3",
+    "react-router": "^0.11.4"
+  }
+}

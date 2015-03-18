@@ -1,5 +1,5 @@
-createExam = require 'utils/createExam'
-rnd = require 'utils/rnd'
+createExam = require '../utils/createExam'
+rnd = require '../utils/rnd'
 
 
 numbers =

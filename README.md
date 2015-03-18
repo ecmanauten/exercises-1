@@ -1,5 +1,11 @@
 # Quizes and Exercises
 
+## Installation
+
+    $ git clone https://github.com/mosaic-academy/quizes-and-exercises.git
+    $ sudo npm install
+    $ sudo npm start
+
 ## Commercial usage
 You can use these quizes and exercises freely in commercial projects as long as you keep your modifications in open source too.
 

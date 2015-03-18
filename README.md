@@ -8,7 +8,7 @@ Every quiz is essentially an array of functions that return a problem and soluti
 
 ### Text Input
 
-    [ input ]
+    [[ right answer ]]
 
 ### Radio Buttons
 
@@ -28,4 +28,4 @@ Every quiz is essentially an array of functions that return a problem and soluti
 There's a plenty of work to do!
 
 ### License
-[GPL](https://github.com/mosaic-academy/quizes-and-exercises/blob/master/LICENSE)
+[GNU GPL](https://github.com/mosaic-academy/quizes-and-exercises/blob/master/LICENSE)

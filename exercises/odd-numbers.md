@@ -19,12 +19,15 @@
 
 ```
 
+## Problem
+Print to console odd numbers in range from `1` to `20`.
 
-Вывести в консоль числа все нечетные числа в диапазоне от `1` до `20`.
+## Hints
+The main trick is to how to define which number is it — odd or even. (You can use remainder operator `%`, see [MDN reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators#Remainder)).
 
-Основная хитрость — как понять, чётное или нечётное число? (Обратите внимание на оператор `%`, см. [статью MDN](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Arithmetic_Operators#Remainder)). Используйте цикл `while`, счётчик `i`, вывод в консоль `console.log`.
+Use `while` loop and `console.log`.
 
-Ожидаемый результат:
+## Expected Result
 ```
 1
 3

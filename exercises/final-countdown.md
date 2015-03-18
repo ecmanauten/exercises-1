@@ -20,12 +20,13 @@
 .
 ```
 
-Написать программу, которая при запуске ведёт обратный отсчёт от `10` до `1`, а в конце пишет `"Поехали!"`. Сообщения должны выводиться строка за строкой в консоли.
+## Problem
+Write a set of statements that writes a final countdown from `'...10'`, `'...9'` to `'...1'`, `'GO!'`. Use the `console.log` to print these strings to terminal or browser console.
 
-В решении пригодятся функция `console.log`, цикл `while`, счётчик `i`, знание о соединении строк с помощью оператора `+`.
+## Hints
+You might use `console.log`, `while` loop, counter `i` and string concatenation operator `+`.
 
-Ожидаемый результат:
-
+## Expected Result
     ...10
     ...9
     ...8
@@ -36,4 +37,4 @@
     ...3
     ...2
     ...1
-    ПОЕХАЛИ!
+    GO!

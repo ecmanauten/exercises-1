@@ -40,11 +40,11 @@ Every quiz is essentially an array of functions that return a problem and soluti
 There's a plenty of work to do!
 
 ## TODO
-[ ] Add quiz boilerplate
-[ ] Describe `utils` APIs
+- [ ] Add quiz boilerplate
+- [ ] Describe `utils` APIs
 
 ## Future
 We're planning to develop special _DSL_ (domain specific language) for writing quizes based on markdown and inline JS interpolation. That requires us to develop new AST parser and reactifier.
 
 ## License
-[GNU GPL](https://github.com/mosaic-academy/quizes-and-exercises/blob/master/LICENSE)
+[GNU GPL v2](https://github.com/mosaic-academy/quizes-and-exercises/blob/master/LICENSE)

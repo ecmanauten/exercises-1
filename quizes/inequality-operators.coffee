@@ -1,6 +1,6 @@
-createExam = require 'utils/createExam'
-List = require 'utils/List'
-rnd = require 'utils/rnd'
+createExam = require '../utils/createExam'
+List = require '../utils/List'
+rnd = require '../utils/rnd'
 
 
 ops = [ "<", ">", "<=", ">=" ]

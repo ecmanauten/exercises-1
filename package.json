@@ -35,6 +35,7 @@
     "css-loader": "^0.9.1"
   },
   "dependencies": {
+    "lodash": "^3.5.0",
     "marked": "^0.3.3",
     "react": "^0.12.0",
     "react-document-title": "^0.1.3",

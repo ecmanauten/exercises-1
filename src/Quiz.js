@@ -9,7 +9,7 @@ var Quiz = React.createClass({
 
   getInitialState() {
     var quizName = this.getParams().quiz;
-    var quizGenerator = require('./quizes/' + quizName + '.coffee');
+    var quizGenerator = require('./quizes/' + quizName);
     var randomQuiz = quizGenerator.new();
 
     return {
@@ -25,7 +25,6 @@ var Quiz = React.createClass({
 
   render() {
     var randomQuiz = this.state.randomQuiz;
-    console.log(randomQuiz);
 
     return (
       <div className="quiz">

@@ -51,12 +51,12 @@ module.exports = skillsList.map(function(item, i) {
       // if there's an image with url's address
       imageName: item[2] ? item[1] : undefined,
       tags: ['while loop lesson'],
-      id: i
+      key: i
     };
   } else {
     return {
       title: item,
-      id: i
+      key: i
     };
   };
 });

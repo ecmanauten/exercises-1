@@ -8,20 +8,20 @@
 
 var skillsList = [
 
-  ['Primite Datatypes', 'primitive-datatypes'],
+  ['Primitive Datatypes', 'primitive-datatypes', true],
 
   '<Script> tag',
 
   'Math Object',
 
   ['Math Operators', 'math-operators', true],
-  ['Inequality Operators', 'inequality-operators'],
+  ['Inequality Operators', 'inequality-operators', true],
   'Equality Operators',
-  ['String Concatenation', 'string-concatenation'],
+  ['String Concatenation', 'string-concatenation', true],
 
   'String Methods',
 
-  ['Variable Declaration', 'variable-declaration'],
+  ['Variable Declaration', 'variable-declaration', true],
   'Reference vs Value',
 
   'Operators Properties',
@@ -30,8 +30,8 @@ var skillsList = [
   'Arrays and Objects',
   'Null or Undefined',
 
-  ['Increment and Decrement', 'increment-and-decrement'],
-  ['While Loop', 'while-1'],
+  ['Increment and Decrement', 'increment-and-decrement', true],
+  ['While Loop', 'while-1', true],
 
   'For Loop',
   'Array Methods',

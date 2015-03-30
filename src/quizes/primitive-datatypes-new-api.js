@@ -15,7 +15,7 @@ function strings() {
   return {
     problem: [
       'What\'s the type of this literal?',
-      '    "${randomString}"'
+      '    "${randomString}"',
       '[[ radio ]]'
     ],
 
@@ -37,6 +37,7 @@ function strings() {
 
 
 function numbers() {
+
   var numbers = [ "42", "3.14", "1.617", "140000000", "0.00000000000000000091093822", "13", "100500", ".155", "Infinity", "-Infinity", "10e23", "0101010001", "9.1093822e−31", "NaN", "0xCCFF", "1.4738223E-32" ];
 
   var randomNumber = this.rnd(numbers);
@@ -44,11 +45,11 @@ function numbers() {
   return {
     problem: [
       'What\'s the type of this literal?',
-      '    "${randomString}"'
+      '    "${randomString}"',
       '[[ radio ]]'
     ],
 
-    widgets: this.widgets.radio(`number`, `string`, `boolean`, `null`, `undefined`);
+    widgets: this.widgets.radio(`number`, `string`, `boolean`, `null`, `undefined`),
 
     solution: [
       '__Answer: \`number\`.__',

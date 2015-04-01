@@ -15,7 +15,7 @@ function strings() {
   return {
     problem: [
       'What\'s the type of this literal?',
-      '    "${randomString}"',
+      `    "${randomString}"`,
       '[[ radio ]]'
     ],
 
@@ -45,7 +45,7 @@ function numbers() {
   return {
     problem: [
       'What\'s the type of this literal?',
-      '    "${randomString}"',
+      `    "${randomNumber}"`,
       '[[ radio ]]'
     ],
 

@@ -1,6 +1,6 @@
 import createExam from '../utils/createExam';
 import rnd from '../utils/rnd';
-import dontIndent from '../utils/dontIndent';
+import dedent from '../utils/dedent';
 
 
 var numbers = [ "42", "3.14", "1.617", "140000000", "0.00000000000000000091093822", "13", "100500", ".155", "Infinity", "-Infinity", "10e23", "0101010001", "9.1093822e−31", "NaN", "0xCCFF", "1.4738223E-32" ];
@@ -19,7 +19,7 @@ function Strings() {
   var randomString = rnd(strings);
 
   return {
-    problem: dontIndent`
+    problem: dedent`
     ${question}
 
         "${randomString}"
@@ -30,7 +30,7 @@ function Strings() {
     - \`null\`
     - \`undefined\``,
 
-  solution: dontIndent`
+  solution: dedent`
     __Answer: \`string\`.__
 
     String literal is an string of characters, enclosed in singular \`'\` or double \`\"\` quotes.`

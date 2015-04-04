@@ -5,6 +5,8 @@
 
 'use strict';
 
+import dedent from '../utils/dedent';
+
 
 function strings() {
 
@@ -13,27 +15,37 @@ function strings() {
   var randomString = this.rnd(strings);
 
   return {
-    problem: [
-      'What\'s the type of this literal?',
-      `    "${randomString}"`,
-      '[[ radio ]]'
-    ],
+    problem: dedent`
+
+        What\'s the type of this literal?
+
+            "${randomString}"
+
+        [[ radio ]]
+
+    `,
 
     widgets: {
       radio: {
         type: 'radio',
         props: {
-          options: [`string`, `number`, `boolean`, `null`, `undefined`]
+          options: ['`string`', '`number`', '`boolean`', '`null`', '`undefined`']
         }
       }
     },
 
-    solution: [
-      '__Answer: \`string\`.__',
-      'String literal is an string of characters, enclosed in singular `\'` or double `\"` quotes.'
-    ]
+    solution: dedent`
+
+      __Answer: \`string\`.__
+
+      String literal is an string of characters, enclosed in singular \`'\` or double \`\"\` quotes.
+
+    `
   };
 };
+
+
+//` annoying syntax hightlighting!
 
 
 function numbers() {
@@ -43,18 +55,25 @@ function numbers() {
   var randomNumber = this.rnd(numbers);
 
   return {
-    problem: [
-      'What\'s the type of this literal?',
-      `    "${randomNumber}"`,
-      '[[ radio ]]'
-    ],
+    problem: dedent`
 
-    widgets: this.widgets.radio(`number`, `string`, `boolean`, `null`, `undefined`),
+      What\'s the type of this literal?
 
-    solution: [
-      '__Answer: \`number\`.__',
-      'Number literal is either integer (like `42`), float (like `3.14`), exponential (like `10e23`), hex (like `0xCCFF`), `Infinity`, `-Infinity` or `NaN`.'
-    ]
+          "${randomNumber}"
+
+      [[ radio ]]
+
+    `,
+
+    widgets: this.widgets.radio('`number`', '`string`', '`boolean`', '`null`', '`undefined`'),
+
+    solution: dedent`
+
+      __Answer: \`number\`.__
+
+      Number literal is either integer (like \`42\`), float (like \`3.14\`), exponential (like \`10e23\`), hex (like \`0xCCFF\`), \`Infinity\`, \`-Infinity\` or \`NaN\`.
+
+    `
   };
 }
 

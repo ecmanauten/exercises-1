@@ -1,4 +1,4 @@
-# Quizes and Exercises
+# Exercises
 
 ## Installation
 

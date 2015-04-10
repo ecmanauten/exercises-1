@@ -5,7 +5,7 @@
 
 'use strict';
 
-import dedent from '../utils/dedent';
+import dedent from 'utils/dedent';
 
 
 function strings() {

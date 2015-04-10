@@ -25,7 +25,7 @@ function strings() {
 
     `,
 
-    widgets: { radio: this.widgets.radio('`string`', '`number`', '`boolean`', '`null`', '`undefined`') },
+    widgets: { radio: this.radio('`string`', ['`number`', '`boolean`', '`null`', '`undefined`']) },
 
     solution: dedent`
 
@@ -58,7 +58,7 @@ function numbers() {
 
     `,
 
-    widgets: { radio: this.widgets.radio('`number`', '`string`', '`boolean`', '`null`', '`undefined`') },
+    widgets: { radio: this.radio('`number`', ['`string`', '`boolean`', '`null`', '`undefined`']) },
 
     solution: dedent`
 
@@ -86,7 +86,7 @@ function booleans() {
 
     `,
 
-    widgets: { radio: this.widgets.radio('`boolean`', '`number`', '`string`', '`null`', '`undefined`') },
+    widgets: { radio: this.radio('`boolean`', ['`number`', '`string`', '`null`', '`undefined`']) },
 
     solution: dedent`
 
@@ -115,7 +115,7 @@ function nullUndefined() {
 
     `,
 
-    widgets: { radio: this.widgets.radio(`\`${specialType}\``, `\`${eitherType}\``, '`number`', '`string`', '`boolean`') },
+    widgets: { radio: this.radio(`\`${specialType}\``, [`\`${eitherType}\``, '`number`', '`string`', '`boolean`']) },
 
     solution: dedent`
 

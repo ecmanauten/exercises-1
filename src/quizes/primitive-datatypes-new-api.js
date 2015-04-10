@@ -21,15 +21,17 @@ function strings() {
 
             "${randomString}"
 
-        [[ radio ]]
+        {{ radio }}
 
     `,
 
     widgets: {
       radio: {
-        type: 'radio',
+        type: 'Radio',
         props: {
-          options: ['`string`', '`number`', '`boolean`', '`null`', '`undefined`']
+          answer: '`string`',
+          options: ['`number`', '`boolean`', '`null`', '`undefined`'],
+          widgetKey: 'radio'
         }
       }
     },
@@ -61,11 +63,11 @@ function numbers() {
 
           "${randomNumber}"
 
-      [[ radio ]]
+      {{ radio }}
 
     `,
 
-    widgets: this.widgets.radio('`number`', '`string`', '`boolean`', '`null`', '`undefined`'),
+    widgets: { radio: this.widgets.radio('`number`', '`string`', '`boolean`', '`null`', '`undefined`') },
 
     solution: dedent`
 
@@ -89,11 +91,11 @@ function booleans() {
 
           "${randomBoolean}"
 
-      [[ radio ]]
+      {{ radio }}
 
     `,
 
-    widgets: this.widgets.radio('`boolean`', '`number`', '`string`', '`null`', '`undefined`'),
+    widgets: { radio: this.widgets.radio('`boolean`', '`number`', '`string`', '`null`', '`undefined`') },
 
     solution: dedent`
 
@@ -118,11 +120,11 @@ function nullUndefined() {
 
           "${specialType}"
 
-      [[ radio ]]
+      {{ radio }}
 
     `,
 
-    widgets: this.widgets.radio('`${specialType}`', '`${eitherType}`', '`number`', '`string`'),
+    widgets: {radio: this.widgets.radio(`\`${specialType}\``, `\`${eitherType}\``, '`number`', '`string`') },
 
     solution: dedent`
 
@@ -135,52 +137,10 @@ function nullUndefined() {
 }
 
 
-
-
-export default {
-  url: 'primitive-datatypes',
-  name: 'Primitive Datatypes',
-  problems: [
-    {
-      name: 'Strings',
-      problem: strings,
-      ratio: 5
-    },
-    {
-      name: 'Numbers',
-      problem: numbers,
-      ratio: 3
-    },
-    {
-      name: 'Booleans',
-      problem: booleans,
-      ratio: 2
-    },
-    {
-      name: 'Null or Undefined',
-      problem: nullUndefined,
-      ratio: 1
-    }
-  ],
-  reference: dedent`
-    # Datatypes
-    - primitive: \`number\`, \`string\`, \`boolean\`
-    - special: \`null\`, \`undefined\`
-    - composite: \`array\`, \`object\`
-    - functional: \`function\`, \`regexp\`
-
-    # Numbers
-    - \`0\`, \`-20\`, \`42\`, \`15000000\` (integer)
-    - \`0xff\` (hex), \`0377\` (octal)
-    - \`3.14\`, \`-2345.789\`, \`.333333\` (float)
-    - \`6.02e23\`, \`1.4738223E-32\` (scientific)
-    - \`NaN\`, \`Infinity\`, \`-Infinity\` (special types)
-
-    # Strings
-    - \`''\`, \`""\`, \`'name="myform"'\`, \`"3.14"\`
-    - \`"π is the ratio of a circle's circumference to its diameter"\`
-    - \`"This string\\nhas two lines"\`
-    - \`'You\\'re right, it can\\'t be a quote'\`
-    - \`\\n\`, \`\\t\`, \`\\"\`, \`\\'\`, \`\\\\\`, \`\\u\` (special characters)
-  `
-}
+export default [
+  'Primitive Datatypes',
+  [strings, 5],
+  [numbers, 3],
+  [booleans, 2],
+  [nullUndefined, 1]
+];

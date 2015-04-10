@@ -25,16 +25,7 @@ function strings() {
 
     `,
 
-    widgets: {
-      radio: {
-        type: 'Radio',
-        props: {
-          answer: '`string`',
-          options: ['`number`', '`boolean`', '`null`', '`undefined`'],
-          widgetKey: 'radio'
-        }
-      }
-    },
+    widgets: { radio: this.widgets.radio('`string`', '`number`', '`boolean`', '`null`', '`undefined`') },
 
     solution: dedent`
 
@@ -61,7 +52,7 @@ function numbers() {
 
       What\'s the type of this literal?
 
-          "${randomNumber}"
+          ${randomNumber}
 
       {{ radio }}
 
@@ -89,7 +80,7 @@ function booleans() {
 
       What\'s the type of this literal?
 
-          "${randomBoolean}"
+          ${randomBoolean}
 
       {{ radio }}
 
@@ -118,13 +109,13 @@ function nullUndefined() {
 
       What\'s the type of this literal?
 
-          "${specialType}"
+          ${specialType}
 
       {{ radio }}
 
     `,
 
-    widgets: {radio: this.widgets.radio(`\`${specialType}\``, `\`${eitherType}\``, '`number`', '`string`') },
+    widgets: { radio: this.widgets.radio(`\`${specialType}\``, `\`${eitherType}\``, '`number`', '`string`', '`boolean`') },
 
     solution: dedent`
 

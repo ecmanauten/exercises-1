@@ -5,17 +5,15 @@
 
 'use strict';
 
-import dedent from 'utils/dedent';
 
-
-function strings() {
+function Strings() {
 
   let strings = [ 'Hello, World!', 'Lambda Calculus', 'JavaScript', 'Structure and Interpretation of Computer Programs', 'jQuery', 'Computer Science', '99 problems', 'Nick Cave & The Bad Seeds: The Mercy Seat', 'var', 'let', 'true === 2 + 2', '', 'Infinity', '__', 'Kanye West: "New Slaves"', 'The\\nLittle\\nJavaScripter', 'false', 'true', 'undefined', 'null' ];
 
   let randomString = this.rnd(strings);
 
   return {
-    problem: dedent`
+    problem: `
 
         What\'s the type of this literal?
 
@@ -27,7 +25,7 @@ function strings() {
 
     widgets: { radio: this.radio('`string`', ['`number`', '`boolean`', '`null`', '`undefined`']) },
 
-    solution: dedent`
+    solution: `
 
       __Answer: \`string\`.__
 
@@ -41,14 +39,14 @@ function strings() {
 //` annoying syntax hightlighting!
 
 
-function numbers() {
+function Numbers() {
 
   let numbers = [ '42', '3.14', '1.617', '140000000', '0.00000000000000000091093822', '13', '100500', '.155', 'Infinity', '-Infinity', '10e23', '0101010001', '9.1093822e−31', 'NaN', '0xCCFF', '1.4738223E-32' ];
 
   let randomNumber = this.rnd(numbers);
 
   return {
-    problem: dedent`
+    problem: `
 
       What\'s the type of this literal?
 
@@ -60,7 +58,7 @@ function numbers() {
 
     widgets: { radio: this.radio('`number`', ['`string`', '`boolean`', '`null`', '`undefined`']) },
 
-    solution: dedent`
+    solution: `
 
       __Answer: \`number\`.__
 
@@ -71,12 +69,12 @@ function numbers() {
 }
 
 
-function booleans() {
+function Booleans() {
 
   let randomBoolean = this.rnd([ 'true', 'false' ]);
 
   return {
-    problem: dedent`
+    problem: `
 
       What\'s the type of this literal?
 
@@ -88,7 +86,7 @@ function booleans() {
 
     widgets: { radio: this.radio('`boolean`', ['`number`', '`string`', '`null`', '`undefined`']) },
 
-    solution: dedent`
+    solution: `
 
       __Answer: \`boolean\`.__
 
@@ -99,13 +97,13 @@ function booleans() {
 }
 
 
-function nullUndefined() {
+function NullOrUndefined() {
 
   let specialType = this.rnd([ 'null', 'undefined' ]);
   let eitherType = specialType === 'null' ? 'undefined' : 'null';
 
   return {
-    problem: dedent`
+    problem: `
 
       What\'s the type of this literal?
 
@@ -117,7 +115,7 @@ function nullUndefined() {
 
     widgets: { radio: this.radio(`\`${specialType}\``, [`\`${eitherType}\``, '`number`', '`string`', '`boolean`']) },
 
-    solution: dedent`
+    solution: `
 
       __Answer: \`${specialType}\`.__
 
@@ -130,8 +128,8 @@ function nullUndefined() {
 
 export default [
   'Primitive Datatypes',
-  [strings, 5],
-  [numbers, 3],
-  [booleans, 2],
-  [nullUndefined, 1]
+  [Strings, 5],
+  [Numbers, 3],
+  [Booleans, 2],
+  [NullOrUndefined, 1]
 ];

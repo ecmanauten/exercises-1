@@ -21,14 +21,18 @@ Arrow Functions
 
 ## Reference
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions
+- http://www.2ality.com/2012/04/arrow-functions.html
 - http://people.mozilla.org/~jorendorff/es6-draft.html#sec-arrow-function-definitions
 - http://www.nczonline.net/blog/2013/09/10/understanding-ecmascript-6-arrow-functions/
+- https://medium.com/@mrzepinski/arrow-functions-bb08eeb11667
+- https://leanpub.com/understandinges6/read/#leanpub-auto-arrow-functions
 
 
 ## Rags and Bones
 - http://es6rocks.com/2014/10/arrow-functions-and-their-scope/
 - http://tc39wiki.calculist.org/es6/arrow-functions/
 - http://javascriptplayground.com/blog/2014/04/real-life-es6-arrow-fn/
+- http://codepen.io/bradleyboy/posts/getting-to-know-es6-arrow-functions
 
 
 ## Code Samples
@@ -53,6 +57,15 @@ Arrow Functions
       }
     }
 
+---
+
+    var test = {
+      firstname: 'David',
+      fn: function() {
+        return ['one', 'two', 'tree'].map(() => this.firstname)
+      }
+    }
+    console.log(test.fn())
 
     // single param, single statement
     param => expression;

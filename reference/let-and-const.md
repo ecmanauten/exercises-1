@@ -14,5 +14,5 @@ Block-scoped binding constructs. `let` is the new `var`. `const` is single-assig
       }
     }
 
-- [Getting to know ES6: Variable declaration](http://codepen.io/bradleyboy/posts/getting-to-know-es6-variables)
+- [Variables and scoping in ECMAScript 6](http://www.2ality.com/2015/02/es6-scoping.html)
 - MDN on [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) and [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)

@@ -1,7 +1,19 @@
-Template strings are enclosed by the back-tick (\` \`) (grave accent) character instead of double or single quotes. Template strings can contain place holders. These are indicated by the Dollar sign and curly braces (`${expression}`). The expressions in the place holders and the text between them get passed to a function. The default function just concatenates the parts into a single string. If there is an expression preceding the template string (tag here),  the template string is called "tagged template string". In that case, the tag expression (usually a function) gets called with the processed template string, which you can then manipulate before outputting.
+Template strings provide syntactic sugar for constructing strings. This is similar to string interpolation features in Perl, Python and more. Optionally, a tag can be added to allow the string construction to be customized, avoiding injection attacks or constructing higher level data structures from string contents.
 
-_[Template Strings](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/template_strings) by Mozilla Contributors is licensed under [CC-BY-SA 2.5](http://creativecommons.org/licenses/by-sa/2.5/)._
+    // Basic literal string creation
+    `In JavaScript '\n' is a line-feed.`
 
-\-\-\-
+    // Multiline strings
+    `In JavaScript this is
+     not legal.`
 
-123
+    // String interpolation
+    var name = "Bob", time = "today";
+    `Hello ${name}, how are you ${time}?`
+
+    // Construct an HTTP request prefix is used to interpret the replacements and construction
+    GET`http://foo.org/bar?a=${a}&b=${b}
+        Content-Type: application/json
+        X-Credentials: ${credentials}
+        { "foo": ${foo},
+          "bar": ${bar}}`(myOnReadyStateChangeHandler);

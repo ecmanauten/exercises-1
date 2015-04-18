@@ -17,6 +17,7 @@ Let and Const
 ## Reference
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const
+- http://www.2ality.com/2015/02/es6-scoping.html
 - http://codepen.io/bradleyboy/posts/getting-to-know-es6-variables
 - https://medium.com/@mrzepinski/let-const-35bca3b4a3c6
 

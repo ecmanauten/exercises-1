@@ -23,17 +23,24 @@ function SingleAssignment() {
 
       {{ radio }}
 
+      If we substitute \`${ letOrConst }\` with \`var\` will the result be the same?
+      
+      {{ radio2 }}
+
     `,
 
-    widgets: { radio: this.radioCode(
-        `'${ value }'`,
-        `${ variableName }`,
-        'undefined'
-      ) },
+    widgets: {
+        radio: this.radioCode(
+          `'${ value }'`,
+          `${ variableName }`,
+          'undefined'
+        ),
+        radio2: this.radio('yes', ['no']),
+      },
 
     solution: `
 
-      __Answer: \`${ value }\`.__
+      __Answers: \`'${ value }'\` and “yes”.__
 
       Assignment using \`let\` and \`const\` works the same as using \`var\`.
 
@@ -225,11 +232,95 @@ function ConstWithoutAssignment() {
 }
 
 
+function TemporalDeadZone() {  
+  const [a, b] = this.rnd(this.list.letterPairs);
+  const value1 = this.rnd(this.list.buzzWordOne);
+  const value2 = this.rnd(this.list.buzzWordOne);
+
+  return {
+    problem: `
+
+      Determine which value goes into console.
+
+          if (true) {
+            ${a} = '${value1}';
+            ${b} = '${value2}';
+
+            let ${a};
+            var ${b};
+
+            console.log(${a}, ${b});
+          }
+
+      {{ radio }}
+
+    `,
+
+    widgets: { radio: this.radio('`ReferenceError`', [
+        '`undefined`, `undefined`',
+        `\`${value1}\`, \`${value2}\``,
+        `\`${value1}\`, \`undefined\``,
+        `\`undefined\`, \`${value2}\``
+      ]) },
+
+    solution: `
+
+      __Answer: \`ReferenceError\`.__
+
+      Regular \`var\` declaration “hoists” to the top of their current scope. That allows to use variable now and declare it later. But this isn't a case for \`let\`.
+
+    `
+  };
+}
+
+
+function DoubleDeclaration() {  
+  const name = this.rnd(this.list.variableNames);
+  const value1 = this.rnd(this.list.animal);
+  const value2 = this.rnd(this.list.animal);
+  const letOrConst = this.rnd(['let', 'const']);
+
+  return {
+    problem: `
+
+      Determine which value goes into console.
+
+          ${letOrConst} ${name} = '${value1}';
+          ${letOrConst} ${name} = '${value2}';
+
+          console.log(${name});
+
+      {{ radio }}
+
+      If we substitute \`${ letOrConst }\` with \`var\` will the result be the same?
+
+      {{ radio2 }}
+
+    `,
+
+    widgets: {
+      radio: this.radioCode(
+        `SyntaxError`,
+        `${value1}`,
+        `${value2}`
+      ),
+      radio2: this.radio('no', ['yes'])
+    },
+
+    solution: `
+
+      __Answer: \`SyntaxError\` and “no”.__
+
+      Identifier \`${name}\` has already been declared. When using \`let\` or \`const\` this is an illegal operation.
+
+    `
+  };
+}
+
+
 /**
  * TODO
  * 
- * - double declaration
- * - call before declare
  * - scoping
  *   - let vs var
  *   - let vs const
@@ -242,5 +333,7 @@ export default [
   'Let and Const',
   [SingleAssignment, 2],
   [MutateConst, ConstWithoutAssignment, 1],
-  [MultipleAssignment1, MultipleAssignment2, MultipleAssignment3, 1]
+  [MultipleAssignment1, 1],
+  [TemporalDeadZone, 1],
+  [DoubleDeclaration, 1]
 ];

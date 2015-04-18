@@ -8,7 +8,7 @@
 
 function Strings() {
 
-  let strings = [ 'Hello, World!', 'Lambda Calculus', 'JavaScript', 'Structure and Interpretation of Computer Programs', 'jQuery', 'Computer Science', '99 problems', 'Nick Cave & The Bad Seeds: The Mercy Seat', 'var', 'let', 'true === 2 + 2', '', 'Infinity', '__', 'Kanye West: "New Slaves"', 'The\\nLittle\\nJavaScripter', 'false', 'true', 'undefined', 'null' ];
+  let strings = [ 'Hello, World!', 'Lambda Calculus', 'JavaScript', 'Structure and Interpretation of Computer Programs', 'jQuery', 'Computer Science', '99 problems', 'Nick Cave & The Bad Seeds: The Mercy Seat', 'var', 'let', 'true === 2 + 2', '', 'Infinity', '__', 'Kanye West: \"New Slaves\"', 'The\\nLittle\\nJavaScripter', 'false', 'true', 'undefined', 'null' ];
 
   let randomString = this.rnd(strings);
 

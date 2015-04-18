@@ -4,7 +4,7 @@ Developing Exercises on ECMAScript 6
 ## Reference
 - [Babel/lukehoban ES6 features](https://babeljs.io/docs/learn-es6/)
 - [“Understanding ECMAScript 6” Book](https://leanpub.com/understandinges6/read/)
-- [ECMAScript Language Specification](http://people.mozilla.org/~jorendorff/es6-draft.html#sec-let-and-const-declarations)
+- [ECMAScript Language Specification](http://people.mozilla.org/~jorendorff/es6-draft.html)
 - [Getting to know ES6](http://codepen.io/bradleyboy/posts/getting-to-know-es6-variables)
 - [wiki.ecmascript.org/harmony](http://wiki.ecmascript.org/doku.php?do=index&id=harmony%3Aharmony)
 - [StackOverflow `javascript es6`](http://stackoverflow.com/search?q=%5Bjavascript%5D+es6)

@@ -13,13 +13,13 @@ Developing Exercises on ECMAScript 6
 
 ## Features
 ### Hot
+- Let/Const
+- Template Strings
 - Arrow functions
 - Destructuring
-- Template Strings
-- Objects
-- Rest/Spread
 - Modules
-- Let/Const
+- Rest/Spread
+- Objects
 
 ### Babel
 - Array comprehensions

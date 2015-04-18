@@ -23,12 +23,7 @@ function Variable() {
           ]
         }
       }
-    },
-
-    solution: `
-      __Answer: 123__
-
-    `
+    }
   }
 }
 

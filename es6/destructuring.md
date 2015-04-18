@@ -1,7 +1,7 @@
-Destructuring
-=============
+Destructuring assignment
+========================
 
-# Patterns
+## Patterns
 - Array destructuring
     + assignment without declaration
     + swapping variables
@@ -14,16 +14,18 @@ Destructuring
     + Function argument defaults
     + Nested object and array destructuring
     + Computed object property names and destructuring
+- Function destructuring?
 - ...rest?
 - `undefined` by default, `foo["bar"]` producing undefined values when not found
 
 
-# Reference
+## Reference
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+- http://www.2ality.com/2015/03/destructuring-algorithm.html
 - http://www.2ality.com/2015/01/es6-destructuring.html
 
 
-# Rags and Bones
+## Rags and Bones
 - http://ariya.ofilabs.com/2013/02/es6-and-destructuring-assignment.html
 - http://raganwald.com/2015/02/02/destructuring.html
 - http://odetocode.com/blogs/scott/archive/2014/09/11/features-of-es6-part-6-destructuring.aspx
@@ -31,7 +33,7 @@ Destructuring
 - https://leanpub.com/understandinges6/read/#leanpub-auto-destructuring-assignment
 
 
-# Code Samples
+## Code Samples
 
     // list matching
     var [a, , b] = [1,2,3];

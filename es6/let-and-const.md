@@ -37,3 +37,20 @@ Let and Const
         let x = "inner";
       }
     }
+
+---
+
+## Problems
+### `let` is a new `var`
+
+    let x = 'zebra';
+
+If we substitute `let` with `var` will the statement be equivalent?
+- yes
+- no
+
+
+### `let` vs `var` && `let` vs `const`
+
+    let x = 'zebra';
+    var y = 'zebra';

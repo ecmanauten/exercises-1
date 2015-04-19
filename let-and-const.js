@@ -23,9 +23,9 @@ function SingleAssignment() {
 
       {{ radio }}
 
-      If we substitute \`${ letOrConst }\` with \`var\` will the result be the same?
-      
-      {{ radio2 }}
+      ${ this.rnd() ? this.dedent`If we substitute \`${ letOrConst }\` with \`var\` will the result be the same?
+
+      {{ radio2 }}` : '' }
 
     `,
 
@@ -42,7 +42,7 @@ function SingleAssignment() {
 
       __Answers: \`'${ value }'\` and “yes”.__
 
-      Assignment using \`let\` and \`const\` works the same as using \`var\`.
+      Single variable assignment using \`let\` and \`const\` in this case works the same as using \`var\`.
 
     `
   };
@@ -232,7 +232,7 @@ function ConstWithoutAssignment() {
 }
 
 
-function TemporalDeadZone() {  
+function TemporalDeadZone1() {  
   const [a, b] = this.rnd(this.list.letterPairs);
   const value1 = this.rnd(this.list.buzzWordOne);
   const value2 = this.rnd(this.list.buzzWordOne);
@@ -274,6 +274,49 @@ function TemporalDeadZone() {
 }
 
 
+function TemporalDeadZone2() {  
+  const [a, b] = this.rnd(this.list.letterPairs);
+  const value1 = this.rnd(this.list.buzzWordOne);
+  const value2 = this.rnd(this.list.buzzWordOne);
+
+  return {
+    problem: `
+
+      Determine which value goes into console.
+
+          if (true) {
+            let ${a};
+
+            ${a} = '${value1}';
+            ${b} = '${value2}';
+
+            var ${b};
+
+            console.log(${a}, ${b});
+          }
+
+      {{ radio }}
+
+    `,
+
+    widgets: { radio: this.radio(`\`${value1}\`, \`${value2}\``, [
+        '`ReferenceError`',
+        '`undefined`, `undefined`',
+        `\`${value1}\`, \`undefined\``,
+        `\`undefined\`, \`${value2}\``
+      ]) },
+
+    solution: `
+
+      __Answer: \`ReferenceError\`.__
+
+      Regular \`var\` declaration “hoists” to the top of their current scope. That allows to use variable now and declare it later. But this isn't a case for \`let\`.
+
+    `
+  };
+}
+
+
 function DoubleDeclaration() {  
   const name = this.rnd(this.list.variableNames);
   const value1 = this.rnd(this.list.animal);
@@ -292,9 +335,9 @@ function DoubleDeclaration() {
 
       {{ radio }}
 
-      If we substitute \`${ letOrConst }\` with \`var\` will the result be the same?
+      ${ this.rnd() ? this.dedent`If we substitute \`${ letOrConst }\` with \`var\` will the result be the same?
 
-      {{ radio2 }}
+      {{ radio2 }}` : '' }
 
     `,
 
@@ -333,7 +376,7 @@ export default [
   'Let and Const',
   [SingleAssignment, 2],
   [MutateConst, ConstWithoutAssignment, 1],
-  [MultipleAssignment1, 1],
-  [TemporalDeadZone, 1],
+  [MultipleAssignment1, MultipleAssignment2, 1],
+  [TemporalDeadZone1, TemporalDeadZone2, 1],
   [DoubleDeclaration, 1]
 ];

@@ -59,3 +59,7 @@ Destructuring assignment
     // Fail-soft destructuring with defaults
     var [a = 1] = [];
     a === 1;
+
+    books.forEach(function ({title, author}) {
+      console.log(title, 'is written by', author);
+    });

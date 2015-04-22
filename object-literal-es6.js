@@ -164,7 +164,7 @@ function ShorthandPropertyNames2() {
 
 function MagicShorthandMethodName() {
   const prop = this.rnd(this.list.variableNames);
-  const magicNumber = this.rnd([ 42, 3.14, 128, 21, 7, 0 ])
+  const magicNumber = this.rnd([ 42, 3.14, 128, 21, 7, 0 ]);
 
   return {
     problem: `

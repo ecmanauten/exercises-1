@@ -1,8 +1,17 @@
 # JavaScript Exercises
 
-This is a repository of JavaScript exercises published on [Mosaic.academy](http://mosaic.academy). We're gonna write exercises on _every feature_ of JavaScript.
+This is a repository of JavaScript exercises published on [Mosaic.academy](http://mosaic.academy). We're gonna write exercises on _every feature_ of JavaScript. Also like [our page on facebook](https://www.facebook.com/mosaicjs).
 
 Pull requests are welcome. API is pretty much in progress. If you have any questions, write me via [Twitter](https://twitter.com/surganov).
+
+## To-Do
+- [ ] write about how this system works
+- [ ] write docs on markdown usage in exercises
+- [ ] explain concept of widgets
+- [ ] publish `this.list` as separate repository
+- [ ] convert `old exercises` to new API
+- [ ] write `es6` exercises
+- [ ] remove copyrights from source code headers
 
 ## API
 ### Context bound helpers

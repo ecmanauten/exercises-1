@@ -9,9 +9,9 @@ Pull requests are welcome. API is pretty much in progress. If you have any quest
 - [ ] write docs on markdown usage in exercises
 - [ ] explain concept of widgets
 - [ ] publish `this.list` as separate repository
-- [ ] convert `old exercises` to new API
 - [ ] write `es6` exercises
 - [ ] remove copyrights from source code headers
+- [x] convert `old exercises` to new API
 
 ## API
 ### Context bound helpers
@@ -25,6 +25,9 @@ Generate random integer in a range from `a` to `b`, inclusively.
 
 #### `this.rnd(array)`
 Pick random element of a given `array`.
+
+#### `this.lodash`
+Entire `lodash` library.
 
 #### `this.list`
 Access to a collection of lists. Most often you want to use it with `this.rnd`:

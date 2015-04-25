@@ -35,7 +35,7 @@ function SingleAssignment() {
           `${ variableName }`,
           'undefined'
         ),
-        radio2: this.radio('yes', ['no']),
+        radio2: this.radio('yes', ['no'])
       },
 
     solution: `
@@ -55,7 +55,7 @@ function MultipleAssignment1() {
 
   return {
     problem: `
-      
+
       Determine which value goes into console.
 
           let ${a}, ${b}, ${c};
@@ -80,7 +80,7 @@ function MultipleAssignment1() {
 
     `
 
-  }
+  };
 }
 
 
@@ -91,7 +91,7 @@ function MultipleAssignment2() {
 
   return {
     problem: `
-      
+
       Determine which value goes into console.
 
           ${letOrConst} ${a}, ${b}, ${c} = ${ value };
@@ -115,7 +115,7 @@ function MultipleAssignment2() {
       Multiple assignment using \`let\` and \`const\` works the same as using \`var\`.
 
     `
-  }
+  };
 }
 
 
@@ -127,7 +127,7 @@ function MultipleAssignment3() {
 
   return {
     problem: `
-      
+
       Determine which value goes into console.
 
           ${letOrConst} ${a}, ${b} = ${ value }, ${c};
@@ -151,13 +151,13 @@ function MultipleAssignment3() {
       Multiple assignment of \`let\` and \`const\` works the same as \`var\`.
 
     `
-  }
+  };
 }
 
 
 function MutateConst() {
   const variableName = this.rnd(this.list.variableNames);
-  const integer = this.rnd(1,100);
+  const integer = this.rnd(1, 100);
   const magicNumber = this.rnd(this.list.magicNumbers);
 
   return {
@@ -199,7 +199,7 @@ function MutateConst() {
 function ConstWithoutAssignment() {
   const animal = `'${ this.rnd(this.list.animal) }'`;
   const animal2 = `'${ this.rnd(this.list.animal) }'`;
-  
+
   return {
     problem: `
 
@@ -232,7 +232,7 @@ function ConstWithoutAssignment() {
 }
 
 
-function TemporalDeadZone1() {  
+function TemporalDeadZone1() {
   const [a, b] = this.rnd(this.list.letterPairs);
   const value1 = this.rnd(this.list.buzzWordOne);
   const value2 = this.rnd(this.list.buzzWordOne);
@@ -274,7 +274,7 @@ function TemporalDeadZone1() {
 }
 
 
-function TemporalDeadZone2() {  
+function TemporalDeadZone2() {
   const [a, b] = this.rnd(this.list.letterPairs);
   const value1 = this.rnd(this.list.buzzWordOne);
   const value2 = this.rnd(this.list.buzzWordOne);
@@ -317,7 +317,7 @@ function TemporalDeadZone2() {
 }
 
 
-function DoubleDeclaration() {  
+function DoubleDeclaration() {
   const name = this.rnd(this.list.variableNames);
   const value1 = this.rnd(this.list.animal);
   const value2 = this.rnd(this.list.animal);
@@ -363,7 +363,7 @@ function DoubleDeclaration() {
 
 /**
  * TODO
- * 
+ *
  * - scoping
  *   - let vs var
  *   - let vs const

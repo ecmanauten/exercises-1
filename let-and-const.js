@@ -256,16 +256,17 @@ function TemporalDeadZone1() {
 
     `,
 
-    widgets: { radio: this.radio('`ReferenceError`', [
+    widgets: { radio: this.radio(
+        `\`undefined\`, \`'${value2}'\``, [
         '`undefined`, `undefined`',
-        `\`${value1}\`, \`${value2}\``,
-        `\`${value1}\`, \`undefined\``,
-        `\`undefined\`, \`${value2}\``
+        `\`'${value1}'\`, \`'${value2}'\``,
+        `\`'${value1}'\`, \`undefined\``,
+        '`ReferenceError`'
       ]) },
 
     solution: `
 
-      __Answer: \`ReferenceError\`.__
+      __Answer: \`undefined\`, \`'${value2}'\`.__
 
       Regular \`var\` declaration “hoists” to the top of their current scope. That allows to use variable now and declare it later. But this isn't a case for \`let\`.
 
@@ -299,11 +300,12 @@ function TemporalDeadZone2() {
 
     `,
 
-    widgets: { radio: this.radio(`\`${value1}\`, \`${value2}\``, [
+    widgets: { radio: this.radio(
+        `\`'${value1}'\`, \`'${value2}'\``, [
         '`ReferenceError`',
         '`undefined`, `undefined`',
-        `\`${value1}\`, \`undefined\``,
-        `\`undefined\`, \`${value2}\``
+        `\`'${value1}'\`, \`undefined\``,
+        `\`undefined\`, \`'${value2}'\``
       ]) },
 
     solution: `
@@ -361,22 +363,277 @@ function DoubleDeclaration() {
 }
 
 
-/**
- * TODO
- *
- * - scoping
- *   - let vs var
- *   - let vs const
- *   - if/else
- *   - loops
- */
+function NoHoistingForLetAndConst() {
+  const name = this.rnd(this.list.variableNames);
+  const value = this.rnd(this.list.animal);
+  const letOrConst = this.rnd(['let', 'const']);
+
+  return {
+    problem: `
+
+      Consider the following code:
+
+          ${name} = '${value}';
+          ${letOrConst} ${name};
+
+      Which value is stored in variable \`${name}\`?
+
+      {{ radio }}
+
+    `,
+
+    widgets: {
+      radio: this.radioCode(
+        `undefined`,
+        `SyntaxError`,
+        `'${value}'`,
+        `${name}`
+      ) },
+
+    solution: `
+
+      __Answer: \`undefined\`.__ There is no _hoisting_ for \`let\` and \`const\`.
+
+      First line assigns value \`'${value}'\` to variable \`${name}\`. If there is not such variable and declaration statement has been omitted (like \`var\`, \`let\` or \`const\`) then it creates a global variable with corresponding value.
+
+      The second line declares identifier \`${name}\` in the local block scope with default value of \`undefined\`. Newly created bound identifier \`${name}\` is overriding the previously created global variable \`${name}\` in this scope.
+
+    `
+  };
+}
+
+
+function BlockScopeSimple() {
+  const name = this.rnd(this.list.variableNames);
+  const value = this.rnd(this.list.animal);
+  const letOrConst = this.rnd(['let', 'const']);
+
+  return {
+    problem: `
+
+      Determine which value goes into console.
+
+          if (true) {
+            ${letOrConst} ${name} = '${value}';
+          }
+          console.log(${name});
+
+      {{ radio }}
+
+    `,
+
+    widgets: {
+      radio: this.radioCode(
+        `ReferenceError`,
+        `'${value}'`,
+        `undefined`,
+        `${name}`
+      ) },
+
+    solution: `
+
+      __Answer: \`ReferenceError\`.__
+
+      Keywords \`let\` and \`const\` create new variables scoped to nearest block of code, which denoted by curly braces \`{\` and \`}\`. There is no such identifier \`${name}\` outside that block scope, therefore calling unknown identifier throws \`ReferenceError\`.
+
+    `
+  };
+}
+
+
+function DeclareOutsideOfBlock() {
+  const name = this.rnd(this.list.variableNames);
+  const value = this.rnd(this.list.animal);
+
+  return {
+    problem: `
+
+      Determine which value goes into console.
+
+          if (true) {
+            let ${name};
+  
+            if (true) {
+              ${name} = '${value}';
+            }
+  
+            console.log(${name});
+          }
+
+      {{ radio }}
+
+    `,
+
+    widgets: {
+      radio: this.radioCode(
+        `'${value}'`,
+        `undefined`,
+        `${name}`,
+        `ReferenceError`
+      ) },
+
+    solution: `
+
+      __Answer: \`'${value}'\`.__
+
+      It's possible to change the value of variable declared in outer block scope.
+
+    `
+  };
+}
+
+
+function ForLoop() {
+  const i = this.rnd(this.list.letters);
+  const n = this.rnd(5, 10);
+
+  return {
+    problem: `
+
+      Consider this \`for\` loop:
+
+          for (let ${i} = 0; ${i} < ${n}; ${i}++) {
+            // ...
+          }
+
+      Does counter \`${i}\` available outside the loop?
+
+      {{ radio }}
+
+    `,
+
+    widgets: { radio: this.radio('no', ['yes']) },
+
+    solution: `
+
+      __Answer: no.__
+
+      Counter initialization by \`let\` keyword in \`for\` loop keeps that counter inside loop‘s block scope.
+
+    `
+  };
+}
+
+
+function WhileLoop() {
+  const i = this.rnd(this.list.letters);
+  const n = this.rnd(5, 10);
+
+  return {
+    problem: `
+
+      Consider this \`while\` loop:
+
+          let ${i} = 0;
+
+          while (${i} < ${n}) {
+            // ...
+            ${i}++;
+          }
+
+      Does counter \`${i}\` available outside the loop?
+
+      {{ radio }}
+
+    `,
+
+    widgets: { radio: this.radio('yes', ['no']) },
+
+    solution: `
+
+      __Answer: yes.__
+
+      Variable declared outside of \`while\` loop, therefore it accessible outside of the block scope of the loop.
+
+    `
+  };
+}
+
+
+function ConstantReference1() {
+  const obj = 'person';
+  const prop = 'firstName';
+  const val = this.rnd(this.list.names);
+
+  return {
+    problem: `
+
+      Determine which value goes into console.
+
+          const ${obj} = {};
+          ${obj}.${prop} = '${val}';
+          console.log(${obj});
+
+      {{ radio }}
+
+    `,
+
+    widgets: { radio: this.radioCode(
+      `{ ${prop}: '${val}' }`,
+      `'${val}'`,
+      `{}`,
+      `undefined`,
+      `ReferenceError`
+    ) },
+
+    solution: `
+
+      __Answer: \`{ ${prop}: '${val}' }\`.__
+
+      Keyword \`const\` creates constant _reference_, not constant _value_. The pointer that the variable name is using cannot change in memory, but the thing the variable points to might change.
+
+    `
+  }
+}
+
+
+function ConstantReference2() {
+  const arr = 'animals';
+  const val1 = this.rnd(this.list.animal);
+  const val2 = this.rnd(this.list.animal);
+
+  return {
+    problem: `
+
+      Determine which value goes into console.
+
+          const ${arr} = [ '${val1}' ];
+          ${arr}.push('${val2}');
+          console.log(${arr});
+
+      {{ radio }}
+
+    `,
+
+    widgets: { radio: this.radioCode(
+      `[ '${val1}', '${val2}' ]`,
+      `[ '${val1}' ]`,
+      `[ '${val2}' ]`,
+      `undefined`,
+      `ReferenceError`
+    ) },
+
+    solution: `
+
+      __Answer: \`[ '${val1}', '${val2}' ]\`.__
+
+      Keyword \`const\` creates constant _reference_, not constant _value_. The pointer that the variable name is using cannot change in memory, but the thing the variable points to might change.
+
+    `
+  }
+}
 
 
 export default [
   'Let and Const',
   [SingleAssignment, 2],
-  [MutateConst, ConstWithoutAssignment, 1],
   [MultipleAssignment1, MultipleAssignment2, 1],
-  [TemporalDeadZone1, TemporalDeadZone2, 1],
-  [DoubleDeclaration, 1]
+  [TemporalDeadZone1, TemporalDeadZone2, 1]
+  [DoubleDeclaration, 1],
+  [NoHoistingForLetAndConst, 1],
+  [BlockScopeSimple, 2],
+  [MutateConst, ConstWithoutAssignment, 1],
+  [ConstantReference1, ConstantReference2, 1],
+  [DeclareOutsideOfBlock, 2],
+  [ForLoop, WhileLoop, 2]
 ];

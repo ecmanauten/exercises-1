@@ -42,16 +42,83 @@ Let and Const
 ---
 
 ## Problems
-### `let` is a new `var`
+### If Statement Abstract Inner Scope (DONE)
+    if (true) {
+      let x = 0;
+    }
+    x // ReferenceError
 
-    let x = 'zebra';
+### If Statement Abstract Outer Scope (DONE)
+    let x = 0;
+    if (true) {
+      x += 1;
+    }
+    x // 1
 
-If we substitute `let` with `var` will the statement be equivalent?
-- yes
-- no
+### Loop (DONE)
+    for (let x = 0; x < 5; x++) {
+      // <...>
+    }
+    console.log(x);
+
+### Loop 2 (DONE)
+    let x = 0;
+    while (x < 5) {
+      // <...>
+      x++;
+    }
+    console.log(x);
+
+### If Statement `x` and `y` Abstract
+    let x = 0;
+    if (true) {
+      let y = x;
+    }
+    console.log(y); // 0
+
+### Function scope vs Block scope
+    function foo() {
+      let x = 0;
+      if (true) {
+        var y = x + 1;
+      }
+      return y; // 1
+    }
+
+### Shadowing
+    function func() {
+      let foo = 0;
+      if (true) {
+         let foo = 10; // shadows outer `foo`
+      }
+      console.log(foo); // 5
+    }
+
+### Parameter Shadowing
+    function foo(x) {
+      if (true) {
+        let x = 42;
+      }
+    }
 
 
-### `let` vs `var` && `let` vs `const`
+https://strongloop.com/strongblog/es6-variable-declarations/
+### Constant reference, not value 1
+    const x = {};
+    x.name = 'Sergey';
+    console.log(x);
 
-    let x = 'zebra';
-    var y = 'zebra';
+### Constant reference, not value 2
+    const x = [];
+    x.push('Sergey');
+    console.log(x);
+
+
+### Block Statements
+- function
+- if/else
+- switch
+- for/while
+- try/catch
+* var
+* 

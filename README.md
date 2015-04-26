@@ -5,12 +5,18 @@ This is a repository of JavaScript exercises published on [Mosaic.academy](http:
 Pull requests are welcome. API is pretty much in progress. If you have any questions, write me via [Twitter](https://twitter.com/surganov).
 
 ## To-Do
+- [ ] import `list` and `rnd`, no more `this.<something>`
+- [ ] add `yes`/`no` radio helper
+- [ ] change API of `radio` helper
+- [ ] add a more simple way of declaring single widgets
 - [ ] write about how this system works
 - [ ] write docs on markdown usage in exercises
 - [ ] explain concept of widgets
-- [ ] publish `this.list` as separate repository
-- [ ] write `es6` exercises
-- [ ] remove copyrights from source code headers
+- [ ] write planned `es6` exercises
+- [ ] add exercises on unix command line, regular expressions and lambda calculus
+- [ ] publish `inline-md-to-react` as separate repository (?)
+- [x] ~~remove copyrights from source code headers~~
+- [x] publish `this.list` as [separate repository](https://github.com/mosaic-academy/list)
 - [x] convert `old exercises` to new API
 
 ## API

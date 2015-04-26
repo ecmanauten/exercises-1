@@ -339,6 +339,6 @@ export default [
   [SimpleDeclaration, 3],
   [StoreExpression, 3],
   [ReAssignment, 3],
-  [[Undefined1, Undefined2, Undefined3], 1],
+  [Undefined1, Undefined2, Undefined3, 1],
   [CombinedDeclaration, CombinedDeclaration2, 2]
 ];

@@ -125,7 +125,7 @@ function ShorthandPropertyNames2() {
   const v2 = this.rnd(1, 10);
   const q = this.rnd() ? [x, v1] : [y, v2];
   const decl = this.rnd(['var', 'let', 'const']);
-  const obj = this.rnd(this.list.variableNames);
+  const obj = this.rnd(['result', 'sum', 'expression', 'abc', 'value', 'total', 'one', 'xyz']);
 
   return {
     problem: `

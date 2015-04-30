@@ -25,12 +25,12 @@ Template Strings
 
 
 ## Reference
+- https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/template_strings
 - https://leanpub.com/understandinges6/read/#leanpub-auto-template-strings
-- http://wiki.ecmascript.org/doku.php?id=harmony:quasis
 - http://www.nczonline.net/blog/2012/08/01/a-critical-review-of-ecmascript-6-quasi-literals/
-- [MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/template_strings)
-- [String.raw](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/raw)
+- http://wiki.ecmascript.org/doku.php?id=harmony:quasis
 - http://www.2ality.com/2011/09/quasi-literals.html
+- [String.raw](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/raw)
 - [RegExp](http://www.2ality.com/2012/12/template-strings-xregexp.html)
 
 
@@ -96,6 +96,51 @@ Template Strings
 
     var x = 1;
     var y = 2;
-    `${ x } + ${ y } = ${ x + y}`  // "1 + 2 = 3"
+    `${ x } + ${ y } = ${ x + y }`  // "1 + 2 = 3"
 
-    String.raw `a\n${ 42 }b`  // "a\\n42b"
+    String.raw`a\n${ 42 }b`  // "a\\n42b"
+
+
+---
+
+Radio (+Multiline), Input
+
+### Hello, %username
+    let username = 'root';
+    let greeting = `Hello, ${ username }`;
+
+- `'Hello, ${ username }'`
+- `'Hello, root'`
+- `'Hello, username'`
+- `'Hello, '`
+
+### Triple Substitution
+    let item1 = 'voice';
+    let item2 = 'volcano';
+    let item3 = 'ornament';
+    
+    let demand = `I Need Your ${ item1 }, Your ${ item2 }, and Your ${ item3 }`;
+
+### Three Types of Quotes
+    `... '...' .., ... "..."`
+
+### Escaping Backticks
+
+### Multiline Strings Simple
+### Multiline Strings Surprise Indents
+    var s = `a
+        b
+        c`;
+    assert(s === 'a\n    b\n    c');
+
+### Math Expressions
+    var x = 1;
+    var y = 2;
+    `${ x } + ${ y } = ${ x + y }`  // "1 + 2 = 3"
+
+### String.raw
+    String.raw`a\n${ 42 }b`  // "a\\n42b"
+
+### Wrong Interpolation Symbol
+### Template String Inside Template String
+### Any Expression Inside Interpolation

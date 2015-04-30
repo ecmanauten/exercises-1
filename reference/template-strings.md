@@ -17,3 +17,10 @@ Template strings provide syntactic sugar for constructing strings. This is simil
         X-Credentials: ${credentials}
         { "foo": ${foo},
           "bar": ${bar}}`(myOnReadyStateChangeHandler);
+
+# Extra Materials
+- [MDN: Template Strings](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/template_strings)
+- [Understanding ES6 book](https://leanpub.com/understandinges6/read/#leanpub-auto-template-strings)
+- [A critical review of ECMAScript 6 quasi-literals](http://www.nczonline.net/blog/2012/08/01/a-critical-review-of-ecmascript-6-quasi-literals/)
+- [ES Wiki Harmony: EcmaScript Quasi-Literals](http://wiki.ecmascript.org/doku.php?id=harmony:quasis)
+- [Template strings: embedded DSLs in ECMAScript 6](http://www.2ality.com/2011/09/quasi-literals.html)

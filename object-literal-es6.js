@@ -54,6 +54,50 @@ function ShorthandPropertyNames() {
 }
 
 
+function ShorthandPropertyNames2() {
+  const [ x, y ] = this.rnd(this.list.letterPairs);
+  const v1 = this.rnd(1, 10);
+  const v2 = this.rnd(1, 10);
+  const q = this.rnd() ? [x, v1] : [y, v2];
+  const decl = this.rnd(['var', 'let', 'const']);
+  const obj = this.rnd(['result', 'sum', 'expression', 'abc', 'value', 'total', 'one', 'xyz']);
+
+  return {
+    problem: `
+
+      Consider the following code:
+
+          ${decl} ${x} = ${v1};
+          ${decl} ${y} = ${v2};
+
+          ${decl} ${obj} = { ${x}, ${y} };
+
+      Which value is stored in property \`obj.${q[0]}\`?
+
+      {{ input }}
+
+    `,
+
+    widgets: {
+      input: {
+        type: 'Input',
+        props: {
+          answer: `${q[1]}`
+        }
+      }
+    },
+
+    solution: `
+      __Answer: \`${q[1]}\`.__
+
+      In ES6 property keys can be initialized by variables of the same name. This is called _“property name shorthand”_. This is an equivalent of writing the following ES5 code:
+
+          var ${obj} = { ${x}: ${x}, ${y}: ${y} };
+    `
+  }
+}
+
+
 function ShorthandMethodAndPropertyNames() {
   const name = this.rnd(this.list.names);
 
@@ -119,50 +163,6 @@ function ComputedProperties() {
 }
 
 
-function ShorthandPropertyNames2() {
-  const [ x, y ] = this.rnd(this.list.letterPairs);
-  const v1 = this.rnd(1, 10);
-  const v2 = this.rnd(1, 10);
-  const q = this.rnd() ? [x, v1] : [y, v2];
-  const decl = this.rnd(['var', 'let', 'const']);
-  const obj = this.rnd(['result', 'sum', 'expression', 'abc', 'value', 'total', 'one', 'xyz']);
-
-  return {
-    problem: `
-
-      Consider the following code:
-
-          ${decl} ${x} = ${v1};
-          ${decl} ${y} = ${v2};
-
-          ${decl} ${obj} = { ${x}, ${y} };
-
-      Which value is stored in property \`obj.${q[0]}\`?
-
-      {{ input }}
-
-    `,
-
-    widgets: {
-      input: {
-        type: 'Input',
-        props: {
-          answer: `${q[1]}`
-        }
-      }
-    },
-
-    solution: `
-      __Answer: \`${q[1]}\`.__
-
-      In ES6 property keys can be initialized by variables of the same name. This is called _“property name shorthand”_. This is an equivalent of writing the following ES5 code:
-
-          var ${obj} = { ${x}: ${x}, ${y}: ${y} };
-    `
-  }
-}
-
-
 function MagicShorthandMethodName() {
   const prop = this.rnd(this.list.variableNames);
   const magicNumber = this.rnd([ 42, 3.14, 128, 21, 7, 0 ]);
@@ -189,7 +189,7 @@ function MagicShorthandMethodName() {
 
 
 export default [
-  'Object Literal ES6',
+  'Object Literal (ES6)',
   [ShorthandPropertyNames, ShorthandPropertyNames2, 1],
   [ShorthandMethodAndPropertyNames, 1],
   [ComputedProperties, 1],

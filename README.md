@@ -1,8 +1,6 @@
-# JavaScript Exercises
+# Mosaic Academy Exercises
 
-This is a repository of JavaScript exercises published on [Mosaic.academy](http://mosaic.academy). We're gonna write exercises on _every feature_ of JavaScript. Also like [our page on facebook](https://www.facebook.com/mosaicjs).
-
-Pull requests are welcome. API is pretty much in progress. If you have any questions, write me via [Twitter](https://twitter.com/surganov).
+This is a repository of JavaScript exercises published on [Mosaic.academy](http://mosaic.academy). Pull requests are welcome. API is pretty much in progress. If you have any questions, write me via [Twitter](https://twitter.com/surganov).
 
 ## Methodology
 1. Break into pieces
@@ -11,23 +9,17 @@ Pull requests are welcome. API is pretty much in progress. If you have any quest
 4. Write blueprint
 5. Code & test
 
-## To-Do
-- [ ] import `list` and `rnd`, no more `this.<something>`
-- [ ] add `yes`/`no` radio helper
-- [ ] change API of `radio` helper
-- [ ] publish helpers' code
-- [ ] add a more simple way of declaring single widgets
-- [ ] write about how this system works
-- [ ] write docs on markdown usage in exercises
-- [ ] explain concept of widgets
-- [ ] check grammar
-- [ ] write missing solutions
-- [ ] write planned `es6` exercises
-- [ ] add exercises on unix command line, regular expressions and lambda calculus
-- [ ] ~~publish `inline-md-to-react` as separate repository (?)~~
-- [x] ~~remove copyrights from source code headers~~
-- [x] publish `this.list` as [separate repository](https://github.com/mosaic-academy/list)
-- [x] convert `old exercises` to new API
+## Roadmap
+- [ ] ES6 exercises
+- [ ] JS basics exercises
+- [ ] Non-JS exercises
+- [ ] Exam mode
+- [ ] Add support for assignments
+- [ ] Add support for workshops/courses
+- [ ] Add more widgets
+- [ ] Write elaborate docs
+- [ ] Online editor
+- [ ] User profiles
 
 ## API
 ### Context bound helpers

@@ -114,6 +114,8 @@ Radio (+Multiline), Input
 - `'Hello, username'`
 - `'Hello, '`
 
+### Single Literal Substitution
+
 ### Triple Substitution
     let item1 = 'voice';
     let item2 = 'volcano';

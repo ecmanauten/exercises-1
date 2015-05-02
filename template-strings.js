@@ -25,7 +25,7 @@ function Variable() {
       `,
 
     widgets: { radio: this.radioCode(
-      `${n} ${animal}`
+      `'${n} ${animal}'`
     ) }
   }
 }

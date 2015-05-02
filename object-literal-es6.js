@@ -5,10 +5,58 @@
 
 'use strict';
 
+import list from 'utils/list/index';
+import rnd from 'utils/rnd';
+import { radioCode as radio } from 'utils/widget-helpers';
 
-function ShorthandPropertyNames() {
-  const name = this.rnd(this.list.names);
-  const age = this.rnd(18, 35);
+
+function ShorthandProperty_S() {
+  const [ x, y ] = list.letterPairs();
+  const v1 = rnd(1, 10);
+  const v2 = rnd(1, 10);
+  const q = rnd() ? [x, v1] : [y, v2];
+  const decl = rnd(['var', 'let', 'const']);
+  const obj = rnd(['result', 'sum', 'expression', 'abc', 'value', 'total', 'one', 'xyz']);
+
+  return {
+    problem: `
+
+      Consider the following code:
+
+          ${decl} ${x} = ${v1};
+          ${decl} ${y} = ${v2};
+
+          ${decl} ${obj} = { ${x}, ${y} };
+
+      Which value is stored in property \`obj.${q[0]}\`?
+
+      {{ input }}
+
+    `,
+
+    widgets: {
+      input: {
+        type: 'Input',
+        props: {
+          answer: `${q[1]}`
+        }
+      }
+    },
+
+    solution: `
+      __Answer: \`${q[1]}\`.__
+
+      In ES6 property keys can be initialized by variables of the same name. This is called _“property name shorthand”_. This is an equivalent of writing the following ES5 code:
+
+          var ${obj} = { ${x}: ${x}, ${y}: ${y} };
+    `
+  }
+}
+
+
+function ShorthandProperty_M() {
+  const name = list.names();
+  const age = rnd(18, 35);
 
   return {
     problem: `
@@ -54,87 +102,9 @@ function ShorthandPropertyNames() {
 }
 
 
-function ShorthandPropertyNames2() {
-  const [ x, y ] = this.rnd(this.list.letterPairs);
-  const v1 = this.rnd(1, 10);
-  const v2 = this.rnd(1, 10);
-  const q = this.rnd() ? [x, v1] : [y, v2];
-  const decl = this.rnd(['var', 'let', 'const']);
-  const obj = this.rnd(['result', 'sum', 'expression', 'abc', 'value', 'total', 'one', 'xyz']);
-
-  return {
-    problem: `
-
-      Consider the following code:
-
-          ${decl} ${x} = ${v1};
-          ${decl} ${y} = ${v2};
-
-          ${decl} ${obj} = { ${x}, ${y} };
-
-      Which value is stored in property \`obj.${q[0]}\`?
-
-      {{ input }}
-
-    `,
-
-    widgets: {
-      input: {
-        type: 'Input',
-        props: {
-          answer: `${q[1]}`
-        }
-      }
-    },
-
-    solution: `
-      __Answer: \`${q[1]}\`.__
-
-      In ES6 property keys can be initialized by variables of the same name. This is called _“property name shorthand”_. This is an equivalent of writing the following ES5 code:
-
-          var ${obj} = { ${x}: ${x}, ${y}: ${y} };
-    `
-  }
-}
-
-
-function ShorthandMethodAndPropertyNames() {
-  const name = this.rnd(this.list.names);
-
-  return {
-    problem: `
-      Consider the following code:
-
-          function createPerson(name) {
-            return {
-              greeting() {
-                return \`Hello, \${this.name}\`;
-              },
-              name
-            }
-          }
-
-          console.log(createPerson('${name}').greeting());
-
-      Which value will print to the console?
-
-      {{ radio }}
-
-    `,
-
-    widgets: { radio: this.radioCode(
-        `'Hello, ${name}'`,
-        `{ name: '${name}' }`,
-        `undefined`,
-        `${name}`
-      ) }
-  }
-}
-
-
-function ComputedProperties() {
-  const firstName = this.rnd(this.list.names);
-  const lastName = this.rnd(this.list.lastNames);
+function ComputedProperty_M() {
+  const firstName = list.names();
+  const lastName = list.lastNames();
 
   return {
     problem: `
@@ -154,7 +124,7 @@ function ComputedProperties() {
     `,
 
     widgets: { radio: this.radioCode(
-      this.rnd([`person.firstName`, `person['firstName']`]),
+      rnd([`person.firstName`, `person['firstName']`]),
       `person['lastName']`,
       `person['last']`,
       `person['${firstName}']`
@@ -163,9 +133,9 @@ function ComputedProperties() {
 }
 
 
-function MagicShorthandMethodName() {
-  const prop = this.rnd(this.list.variableNames);
-  const magicNumber = this.rnd([ 42, 3.14, 128, 21, 7, 0 ]);
+function ComputedProperty_XL() {
+  const prop = list.variableNames();
+  const magicNumber = rnd([ 42, 3.14, 128, 21, 7, 0 ]);
 
   return {
     problem: `
@@ -188,10 +158,47 @@ function MagicShorthandMethodName() {
 }
 
 
+function ShorthandMethodAndProperty_XL() {
+  const name = list.names();
+
+  return {
+    problem: `
+      Consider the following code:
+
+          function createPerson(name) {
+            return {
+              greeting() {
+                return \`Hello, \${this.name}\`;
+              }, name
+            }
+          }
+
+          console.log(createPerson('${name}').greeting());
+
+      Which value will print to the console?
+
+      {{ radio }}
+
+    `,
+
+    widgets: { radio: this.radioCode(
+        `'Hello, ${name}'`,
+        `{ name: '${name}' }`,
+        `undefined`,
+        `${name}`
+      ) }
+  }
+}
+
+
 export default [
   'Object Literal (ES6)',
-  [ShorthandPropertyNames, ShorthandPropertyNames2, 1],
-  [ShorthandMethodAndPropertyNames, 1],
-  [ComputedProperties, 1],
-  [MagicShorthandMethodName, 1]
+
+  [ShorthandProperty_S, 2],
+  [ShorthandProperty_M, 2],
+
+  [ComputedProperty_M, 1],
+  [ComputedProperty_XL, 1],
+
+  [ShorthandMethodAndProperty_XL, 1]
 ];

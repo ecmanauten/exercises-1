@@ -7,7 +7,7 @@
 
 import list from 'utils/list/index';
 import rnd from 'utils/rnd';
-import { radioCode as radio } from 'utils/widget-helpers';
+import { radioCode as radio } from './utils/widget-helpers';
 
 
 function ShorthandProperty_S() {

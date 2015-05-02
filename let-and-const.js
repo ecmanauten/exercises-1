@@ -628,7 +628,7 @@ export default [
   'Let and Const',
   [SingleAssignment, 2],
   [MultipleAssignment1, MultipleAssignment2, 1],
-  [TemporalDeadZone1, TemporalDeadZone2, 1]
+  [TemporalDeadZone1, TemporalDeadZone2, 1],
   [DoubleDeclaration, 1],
   [NoHoistingForLetAndConst, 1],
   [BlockScopeSimple, 2],

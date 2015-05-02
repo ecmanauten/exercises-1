@@ -28,7 +28,7 @@ function ShorthandProperty_S() {
 
           ${decl} ${obj} = { ${x}, ${y} };
 
-      Which value is stored in property \`obj.${q[0]}\`?
+      Which value is stored in property \`${obj}.${q[0]}\`?
 
       {{ input }}
 
@@ -54,6 +54,43 @@ function ShorthandProperty_S() {
 }
 
 
+function ShorthandProperty_S2() {
+  const name = list.names();
+  const lastname = list.lastNames();
+
+  return {
+    problem: `
+
+      Consider the following code:
+
+          let name = '${name}';
+          let lastname = '${lastname}';
+          
+          let person = {
+            name,
+            lastname
+          };
+
+      What kind of object was created?
+
+      {{ radio }}
+
+    `,
+
+    widgets: {
+      radio: radio(
+        `{ name: '${name}', lastname: '${lastname}' }`,
+        `{ '${name}', '${lastname}' }`,
+        `'${name} ${lastname}'`,
+        `{ name, lastname }`,
+        `SyntaxError`
+      )
+    }
+
+  }
+}
+
+
 function ShorthandProperty_M() {
   const name = list.names();
   const age = rnd(18, 35);
@@ -69,7 +106,7 @@ function ShorthandProperty_M() {
             };
           }
 
-          createPerson(${name}, ${age});
+          createPerson('${name}', ${age});
 
       What's the returning value of function call?
 
@@ -98,6 +135,37 @@ function ShorthandProperty_M() {
           }
 
     `
+  }
+}
+
+
+function ComputedProperty_L() {
+  const animal = list.animal();
+  const type = rnd([ 'type', 'specie', 'name', 'value' ]);
+
+  return {
+    problem: `
+      Consider the following code:
+
+          let animal = '${animal}';
+
+          let obj = {
+            [animal]: '${type}'
+          };
+
+      What's the name of the only property of \`obj\`?
+
+      {{ radio }}
+
+    `,
+
+    widgets: { radio: this.radioCode(
+      `'${animal}'`,
+      `'animal'`,
+      `animal`,
+      `'${type}'`,
+      `undefined`
+      ) }
   }
 }
 
@@ -140,7 +208,7 @@ function ComputedProperty_XL() {
   return {
     problem: `
 
-      What's the name of the singular property of this object?
+      What's the name of the only property of this object?
 
           { [ '${prop}_' + (() => ${magicNumber})() ]: ${magicNumber} }
 
@@ -183,6 +251,7 @@ function ShorthandMethodAndProperty_XL() {
 
     widgets: { radio: this.radioCode(
         `'Hello, ${name}'`,
+        `'Hello, undefined'`,
         `{ name: '${name}' }`,
         `undefined`,
         `${name}`
@@ -195,8 +264,10 @@ export default [
   'Object Literal (ES6)',
 
   [ShorthandProperty_S, 2],
-  [ShorthandProperty_M, 2],
+  [ShorthandProperty_S2, 2],
+  [ShorthandProperty_M, 1],
 
+  [ComputedProperty_L, 1],
   [ComputedProperty_M, 1],
   [ComputedProperty_XL, 1],
 

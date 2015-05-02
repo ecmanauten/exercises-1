@@ -6,7 +6,7 @@
 'use strict';
 
 import list from 'utils/list/index';
-import rnd from 'utils/rnd';
+import rnd from './utils/rnd';
 import { radioCode as radio } from './utils/widget-helpers';
 
 

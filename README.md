@@ -9,6 +9,8 @@ This is a repository of JavaScript exercises published on [Mosaic.academy](http:
 4. Write blueprint
 5. Code & test
 
+> What makes a good exercise? It should create an impression that every generated problem is unique.
+
 ## Roadmap
 - [ ] ES6 exercises
 - [ ] JS basics exercises
@@ -20,6 +22,7 @@ This is a repository of JavaScript exercises published on [Mosaic.academy](http:
 - [ ] Write elaborate docs
 - [ ] Online editor
 - [ ] User profiles
+- [ ] Guides for writing exercises
 
 ## API
 ### Context bound helpers

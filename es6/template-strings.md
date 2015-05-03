@@ -22,6 +22,7 @@ Template Strings
     + `${} -> #{}`
     + indents
     + plain quotes
+- unicode (???)
 
 
 ## Reference

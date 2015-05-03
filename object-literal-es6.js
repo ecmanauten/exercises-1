@@ -7,7 +7,7 @@
 
 import list from 'utils/list/index';
 import rnd from './utils/rnd';
-import { radioCode as radio } from './utils/widget-helpers';
+import { radioCode as radio, yesNo } from './utils/widget-helpers';
 
 
 function ShorthandProperty_S() {
@@ -23,8 +23,12 @@ function ShorthandProperty_S() {
 
       Consider the following code:
 
-          ${decl} ${x} = ${v1};
-          ${decl} ${y} = ${v2};
+          ${ rnd() ? 
+
+          `${decl} ${x} = ${v1};
+          ${decl} ${y} = ${v2};` :
+
+          `${decl} ${x} = ${v1}, ${y} = ${v2};` }
 
           ${decl} ${obj} = { ${x}, ${y} };
 
@@ -85,28 +89,85 @@ function ShorthandProperty_S2() {
         `{ name, lastname }`,
         `SyntaxError`
       )
-    }
+    },
 
+    solution: `
+
+      __Answer: \`{ name: '${name}', lastname: '${lastname}' }\`.__
+
+      In ES6 property keys can be initialized by variables of the same name. This is called _“property name shorthand”_. This is an equivalent of writing the following ES5 code:
+
+          let person = {
+            name: name,
+            lastname: lastname
+          };
+
+    `
+
+  }
+}
+
+
+function ShorthandProperty_S2_Error() {
+  const name = list.names();
+  const lastname = list.lastNames();
+
+  return {
+    problem: `
+
+      Consider the following code:
+
+          let name = '${name}';
+          let lastname = '${lastname}';
+          
+          let person = {
+            name
+            lastname
+          };
+
+      What kind of object was created?
+
+      {{ radio }}
+
+    `,
+
+    widgets: {
+      radio: radio(
+        `SyntaxError`,
+        `{ name: '${name}', lastname: '${lastname}' }`,
+        `{ '${name}', '${lastname}' }`,
+        `'${name} ${lastname}'`,
+        `{ name, lastname }`
+      )
+    },
+
+    solution: `
+
+      __Answer: \`SyntaxError\`.__
+
+      It looks like object literal initialization using _“property name shorthand”_, but there's a missing comma between key/value pairs.
+
+    `
   }
 }
 
 
 function ShorthandProperty_M() {
   const name = list.names();
+  const city = list.citiesOfUSAtop20();
   const age = rnd(18, 35);
 
   return {
     problem: `
       Consider the following code:
 
-          function createPerson(name, age) {
+          function createPerson(firstname, age, city) {
             return {
-              name,
-              age
+              name: firstname, age, city
             };
           }
 
-          createPerson('${name}', ${age});
+          createPerson('${name}', ${age}, ${city});
 
       What's the returning value of function call?
 
@@ -115,22 +176,22 @@ function ShorthandProperty_M() {
     `,
 
     widgets: { radio: this.radioCode(
-        `{ name: '${name}', age: '${age}' }`,
-        `{ '${name}', '${age}' }`,
-        `{ name, age }`,
+        `{ name: '${name}', age: '${age}', city: '${city}' }`,
+        `{ firstname: '${name}', age: '${age}', city: '${city}' }`,
+        `{ '${name}', '${age}', '${city}' }`,
+        `{ name, age, city }`,
         `SyntaxError`
       ) },
 
     solution: `
 
-      __Answer: \`{ name: '${name}', age: '${age}' }\`.__
+      __Answer: \`{ name: '${name}', age: '${age}', city: '${city}' }\`.__
 
       In ES6 property keys can be initialized by variables of the same name. This is called _“property name shorthand”_. Function \`createPerson\` can be rewritten in ES5 syntax as follows:
 
-          function createPerson(name, age) {
+          function createPerson(firstname, age) {
             return {
-              name: name
-              age: age
+              name: firstname, age: age, city: city
             };
           }
 
@@ -139,7 +200,38 @@ function ShorthandProperty_M() {
 }
 
 
-function ComputedProperty_L() {
+function ComputedProperty_S() {
+  const obj = list.variableNames();
+  const [username, reservedWord] = list.reserved(2);
+
+  return {
+    problem: `
+      What kind of object was created?
+
+          let obj = { ['${username}']: '${reservedWord}' };
+
+      {{ radio }}
+    `,
+
+    widgets: { radio: radio(
+      `{ '${username}': '${reservedWord}' }`,
+      `{ '${reservedWord}': '${username}' }`,
+      `{ ['${reservedWord}']: '${username}' }`,
+      `SyntaxError`
+    ) },
+
+    solution: `
+
+      __Answer: \`{ '${username}': '${reservedWord}' }\`.__
+
+      Computed property names syntax allows you to put an expression in brackets \`[]\`, that will be computed as the property name.
+
+    `
+  }
+}
+
+
+function ComputedProperty_L_Reverse() {
   const animal = list.animal();
   const type = rnd([ 'type', 'specie', 'name', 'value' ]);
 
@@ -153,7 +245,7 @@ function ComputedProperty_L() {
             [animal]: '${type}'
           };
 
-      What's the name of the only property of \`obj\`?
+      What's the name of the _only property_ of \`obj\`?
 
       {{ radio }}
 
@@ -165,7 +257,17 @@ function ComputedProperty_L() {
       `animal`,
       `'${type}'`,
       `undefined`
-      ) }
+      ) },
+
+    solution: `
+
+      __Answer: \`'${animal}'\`.__
+
+      Computed property names syntax allows you to put an expression in brackets \`[]\`, that will be computed as the property name.
+
+      Also, don't be confused by reversed key/value pair in this example.
+
+    `
   }
 }
 
@@ -173,6 +275,7 @@ function ComputedProperty_L() {
 function ComputedProperty_M() {
   const firstName = list.names();
   const lastName = list.lastNames();
+  const answer = rnd([`person.firstName`, `person['firstName']`]);
 
   return {
     problem: `
@@ -192,11 +295,21 @@ function ComputedProperty_M() {
     `,
 
     widgets: { radio: this.radioCode(
-      rnd([`person.firstName`, `person['firstName']`]),
+      answer,
       `person['lastName']`,
       `person['last']`,
       `person['${firstName}']`
-      ) }
+      ) },
+
+    solution: `
+
+      __Answer: \`${answer}\`.__
+
+      Computed property names syntax allows you to put an expression in brackets \`[]\`, that will be computed as the property name.
+
+      Expression \`['first' + suffix]\` computes to object key \`firstName\`, which allows to retrieve property \`'${firstName}'\` from object \`person\`.
+
+    `
   }
 }
 
@@ -204,24 +317,105 @@ function ComputedProperty_M() {
 function ComputedProperty_XL() {
   const prop = list.variableNames();
   const magicNumber = rnd([ 42, 3.14, 128, 21, 7, 0 ]);
+  const _ = rnd() ? '_' : '';
+  const expression = rnd([
+    `(() => ${magicNumber})()`,
+    `${magicNumber}`,
+    `(${magicNumber}).toString()`
+  ]);
 
   return {
     problem: `
 
-      What's the name of the only property of this object?
+      What's the name of the _only property_ of this object?
 
-          { [ '${prop}_' + (() => ${magicNumber})() ]: ${magicNumber} }
+          { [ '${prop}${_}' + ${expression} ]: ${magicNumber} }
 
       {{ radio }}
     `,
 
     widgets: { radio: this.radioCode(
-      `'${prop}_${magicNumber}'`,
-      `'${magicNumber}_${prop}'`,
+      `'${prop}${_}${magicNumber}'`,
+      `'${magicNumber}${_}${prop}'`,
       `undefined`,
       `'${magicNumber}'`,
       `'${prop}'`
-      ) }
+      ) },
+
+    solution: `
+
+      __Answer: \`'${prop}${_}${magicNumber}'\`.__
+
+      Computed property names syntax allows you to put an expression in brackets \`[]\`, that will be computed as the property name.
+
+      It's perfectly fine to use any kind of expressions as computed object key. So, expression \`[ '${prop}${_}' + ${expression} ]\` computes to object key \`'${prop}${_}${magicNumber}'\`.
+
+    `
+  }
+}
+
+
+function ShorthandMethod_S() {
+  const name = list.names();
+  const variation = rnd() ? '()' : ':';
+  const answer = (variation === '()') ? true : false;
+  const [obj, foo] = list.variableNames(2);
+  const bar = list.reserved();
+
+  return {
+    problem: `
+      Consider the following code:
+
+          let ${obj} = {
+            ${foo}${variation} { return '${bar}'; }
+          };
+
+      Is this a valid way to create object \`${obj}\` with method \`${foo}\`?
+
+      {{ yesNo }}
+
+    `,
+
+    widgets: { yesNo: yesNo(answer) },
+
+    solution: `
+
+      __Answer: ${answer ? 'yes' : 'no'}.__
+
+      Method name shorthand notation allows to omit the keyword \`function\` and doesn't use colon \`:\`.
+
+    `
+  }
+}
+
+
+function ShorthandMethodAndProperty_L() {
+  const name = list.names();
+  const [obj, foo] = list.variableNames(2);
+  const bar = list.reserved();
+
+  return {
+    problem: `
+      Consider the following code:
+
+          function ${foo}() { return '${bar}'; };
+          let ${obj} = { ${foo} };
+
+      Is this a valid way to create object \`${obj}\` with method \`${foo}\`?
+
+      {{ yesNo }}
+
+    `,
+
+    widgets: { yesNo: yesNo(true) },
+
+    solution: `
+
+      __Answer: yes.__
+
+      In ES6 property keys can be initialized by variables of the same name. This is called _“property name shorthand”_. But in this case property also holds a reference to a function which makes that property a method.
+
+    `
   }
 }
 
@@ -238,7 +432,7 @@ function ShorthandMethodAndProperty_XL() {
               greeting() {
                 return \`Hello, \${this.name}\`;
               }, name
-            }
+            };
           }
 
           console.log(createPerson('${name}').greeting());
@@ -254,8 +448,16 @@ function ShorthandMethodAndProperty_XL() {
         `'Hello, undefined'`,
         `{ name: '${name}' }`,
         `undefined`,
-        `${name}`
-      ) }
+        `'${name}'`
+      ) },
+
+    solution: `
+
+      __Answer: \`'Hello, ${name}'\`.__
+
+      This is an example of using shorthand notation for both property and methods names.
+
+    `
   }
 }
 
@@ -265,11 +467,15 @@ export default [
 
   [ShorthandProperty_S, 2],
   [ShorthandProperty_S2, 2],
+  [ShorthandProperty_S2_Error, 2],
   [ShorthandProperty_M, 1],
 
-  [ComputedProperty_L, 1],
+  [ComputedProperty_S, 1],
   [ComputedProperty_M, 1],
+  [ComputedProperty_L_Reverse, 1],
   [ComputedProperty_XL, 1],
 
+  [ShorthandMethod_S, 1],
+  [ShorthandMethodAndProperty_L, 1],
   [ShorthandMethodAndProperty_XL, 1]
 ];

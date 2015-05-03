@@ -45,7 +45,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Obje
 Which value is stored in property obj.x?
 [[ 1 ]]
 
-### ShorthandProperty_S2 ( )
+### ShorthandProperty_S2 (DONE)
     let name = 'Andrey';
     let lastname = 'Petrov';
     

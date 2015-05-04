@@ -104,30 +104,59 @@ Template Strings
 
 ---
 
+## Blueprint
+
 Radio (+Multiline), Input
 
 ### Hello, %username
     let username = 'root';
     let greeting = `Hello, ${ username }`;
 
-- `'Hello, ${ username }'`
-- `'Hello, root'`
-- `'Hello, username'`
-- `'Hello, '`
+- 'Hello, ${ username }'
+- 'Hello, root'
+- 'Hello, username'
+- 'Hello, '
 
 ### Single Literal Substitution
+    let n = 15;
+    console.log(`Oh, ${ n } alligators!`);
+
+- 'Oh, 15 alligators'
+- '${ n } alligators'
+- 'Oh, n alligators'
+- 'Oh, undefined alligators'
+- SyntaxError
 
 ### Triple Substitution
     let item1 = 'voice';
     let item2 = 'volcano';
     let item3 = 'ornament';
     
-    let demand = `I Need Your ${ item1 }, Your ${ item2 }, and Your ${ item3 }`;
+    let demand = `I need your ${ item1 }, your ${ item2 }, and your ${ item3 }`;
+
+- 'I need your voice, your volcano and your ornament'
+- 'I need your ${ item1 }, your ${ item2 }, and your ${ item3 }'
+- 'I need your item1, your item2, and your item3'
+- 'I need your undefined, your undefined, and your undefined'
+- SyntaxError
 
 ### Three Types of Quotes
     `... '...' .., ... "..."`
 
+    `He said: 'We're going to ${ city } to find "🐢" there.'`
+
+### Two Types of Quotes
+    let artist = 'Lil B';
+    let song = 'No Black Person Is Ugly';
+    console.log(`"${song}", ${artist}`)
+
+- '"No Black Person Is Ugly", Lil B'
+- '"${song}", ${artist}'
+- SyntaxError
+- '"undefined", undefined'
+
 ### Escaping Backticks
+    let markdown = `The variable \`result\` bound to context.`;
 
 ### Multiline Strings Simple
 ### Multiline Strings Surprise Indents
@@ -144,6 +173,11 @@ Radio (+Multiline), Input
 ### String.raw
     String.raw`a\n${ 42 }b`  // "a\\n42b"
 
-### Wrong Interpolation Symbol
+
 ### Template String Inside Template String
 ### Any Expression Inside Interpolation
+
+
+### Error: Wrong Interpolation Symbol
+### Error: Interpolation variable is undefined
+### Error: SyntaxError because of quotes

@@ -8,7 +8,7 @@ This is a repository of JavaScript exercises published on [Mosaic.academy](http:
 1. [Break into pieces](https://github.com/mosaic-academy/exercises/tree/master/es6)
 2. [Google-driven Research](https://github.com/mosaic-academy/exercises/blob/master/es6/README.md)
 3. [Define patterns](https://github.com/mosaic-academy/exercises/blob/master/es6/arrow-functions.md)
-4. [Write blueprint](https://github.com/mosaic-academy/exercises/blob/master/es6/template-strings.md)
+4. [Write blueprint](https://github.com/mosaic-academy/exercises/blob/master/es6/template-strings.md#blueprint)
 5. [Code & test](https://github.com/mosaic-academy/exercises/blob/master/object-literal-es6.js)
 
 ## Roadmap

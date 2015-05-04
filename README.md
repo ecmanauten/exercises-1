@@ -1,15 +1,15 @@
 # Mosaic Academy Exercises
 
+> What makes a good exercise? It should create an impression that every generated problem is unique.
+
 This is a repository of JavaScript exercises published on [Mosaic.academy](http://mosaic.academy). Pull requests are welcome. API is pretty much in progress. If you have any questions, write me via [Twitter](https://twitter.com/surganov).
 
 ## Methodology
-1. Break into pieces
-2. Google-driven Research
-3. Define patterns
-4. Write blueprint
-5. Code & test
-
-> What makes a good exercise? It should create an impression that every generated problem is unique.
+1. [Break into pieces](https://github.com/mosaic-academy/exercises/tree/master/es6)
+2. [Google-driven Research](https://github.com/mosaic-academy/exercises/blob/master/es6/README.md)
+3. [Define patterns](https://github.com/mosaic-academy/exercises/blob/master/es6/arrow-functions.md)
+4. [Write blueprint](https://github.com/mosaic-academy/exercises/blob/master/es6/template-strings.md)
+5. [Code & test](https://github.com/mosaic-academy/exercises/blob/master/object-literal-es6.js)
 
 ## Roadmap
 - [ ] ES6 exercises
@@ -25,36 +25,55 @@ This is a repository of JavaScript exercises published on [Mosaic.academy](http:
 - [ ] Guides for writing exercises
 
 ## API
-### Context bound helpers
-Every exercise have access to a collection of helpers, bound to their context `this`.
 
-#### `this.rnd()`
+### Random
+Importing `rnd` helper:
+```js
+import rnd from `./utils/rnd`
+```
+
+#### `rnd()`
 Flip a coin. Random generation of `true` or `false`.
 
-#### `this.rnd(a, b)`
+#### `rnd(<Int>a, <Int>b)`
 Generate random integer in a range from `a` to `b`, inclusively.
 
-#### `this.rnd(array)`
-Pick random element of a given `array`.
+#### `rnd(<Array>list)`
+Pick random element of a given `list`.
 
-#### `this.lodash`
-Entire `lodash` library.
 
-#### `this.list`
-Access to a collection of lists. Most often you want to use it with `this.rnd`:
-
+### List of lists
+Pick random elements from collection of lists.
 ```js
-let vegetable = this.rnd(this.list.vegetables);
+import list, { lists } from 'list-of-lists';
+
+let vegetable = list.vegetables();
+let [ foo, bar ] = list.reserved(2);
 ```
 
 List of [available lists](https://github.com/mosaic-academy/list).
 
 
-#### Assorted widget creation helpers
-- `this.radio(answer, options)`
-- `this.radioCode([answer, ...options])`
-- `this.check([answers], [options])`
-- `this.input(answer)`
+### Widget creation helpers
+Importing helpers:
+```js
+import { radio, radioCode, yesNo, check, input } from './utils/widget-helpers'
+```
+
+#### `radio(<String>answer, <Array>options)`
+Creates a list of options with only one correct answer.
+
+#### `radioCode(<String>answer, ...options)`
+Creates a list of options with only one correct answer and wraps every option into `<code>` tag.
+
+#### `yesNo(<Boolean>answer)`
+Creates yes/no radio group.
+
+#### `check(<Array>answers, <Array>options)`
+Creates a list of options with multiple choice.
+
+#### `input(answer)`
+Creates an input of fixed width and hight. Could be inlined.
 
 ## License
 MIT

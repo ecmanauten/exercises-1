@@ -106,9 +106,7 @@ Template Strings
 
 ## Blueprint
 
-Radio (+Multiline), Input
-
-### Hello, %username
+### Interpolation: Hello, %username
     let username = 'root';
     let greeting = `Hello, ${ username }`;
 
@@ -117,7 +115,7 @@ Radio (+Multiline), Input
 - 'Hello, username'
 - 'Hello, '
 
-### Single Literal Substitution
+### Interpolation: Single Literal Substitution
     let n = 15;
     console.log(`Oh, ${ n } alligators!`);
 
@@ -127,7 +125,7 @@ Radio (+Multiline), Input
 - 'Oh, undefined alligators'
 - SyntaxError
 
-### Triple Substitution
+### Interpolation: Triple Substitution
     let item1 = 'voice';
     let item2 = 'volcano';
     let item3 = 'ornament';
@@ -140,44 +138,56 @@ Radio (+Multiline), Input
 - 'I need your undefined, your undefined, and your undefined'
 - SyntaxError
 
-### Three Types of Quotes
-    `... '...' .., ... "..."`
+### Expressions: Math Expressions
+    var x = 1;
+    var y = 2;
+    `${ x } + ${ y } = ${ x + y }`  // "1 + 2 = 3"
 
-    `He said: 'We're going to ${ city } to find "🐢" there.'`
+### Expressions: Math Expressions
+    var a = 5;
+    var b = 10;
+    console.log(`Fifteen is ${a + b} and\nnot ${2 * a + b}.`);
+    // "Fifteen is 15 and
+    // not 20."
 
-### Two Types of Quotes
+### Expressions: Template String Inside Template String
+### Expressions: Any Expression Inside Interpolation
+- function?
+- ternary?
+
+### Quotes: Two Types of Quotes
     let artist = 'Lil B';
     let song = 'No Black Person Is Ugly';
-    console.log(`"${song}", ${artist}`)
+    console.log(`"${song}", ${artist}`);
 
 - '"No Black Person Is Ugly", Lil B'
 - '"${song}", ${artist}'
 - SyntaxError
 - '"undefined", undefined'
 
-### Escaping Backticks
-    let markdown = `The variable \`result\` bound to context.`;
+### Quotes: Three Types of Quotes + Unicode
+    `He said: 'We're going to ${ city } to find "🐢" there.'`
 
-### Multiline Strings Simple
-### Multiline Strings Surprise Indents
+### Quotes: Escaping Backticks
+    let markdown = `The variable \`result\` bound to the context.`;
+
+### Error: Wrong Interpolation Symbol
+### Error: Interpolation variable is undefined
+### Error: SyntaxError because of quotes
+
+### Multiline: Strings Simple
+    console.log(`string text line 1
+    string text line 2`);
+    // "string text line 1
+    // string text line 2"
+
+### Multiline: Strings Surprise Indents
     var s = `a
         b
         c`;
     assert(s === 'a\n    b\n    c');
 
-### Math Expressions
-    var x = 1;
-    var y = 2;
-    `${ x } + ${ y } = ${ x + y }`  // "1 + 2 = 3"
-
-### String.raw
+### Tagged: String.raw
     String.raw`a\n${ 42 }b`  // "a\\n42b"
 
-
-### Template String Inside Template String
-### Any Expression Inside Interpolation
-
-
-### Error: Wrong Interpolation Symbol
-### Error: Interpolation variable is undefined
-### Error: SyntaxError because of quotes
+    String.raw`Hi\n${2+3}!`; // "Hi\\n5!"

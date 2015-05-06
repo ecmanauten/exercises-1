@@ -6,6 +6,8 @@
 'use strict';
 
 import list from 'utils/list/index';
+import { radio, check } from './utils/widget-helpers';
+import { mdCodeBlock as block } from 'cooked';
 
 
 function Variable() {
@@ -50,8 +52,34 @@ function QuotesInsideQuotes() {
 }
 
 
+function Multiline_S() {
+  return {
+    problem: `
+      Choose the answer:
+
+      {{ radio }}
+
+      `,
+
+    widgets: {
+      radio: check(
+        [block`
+          let some = 'variable';
+          console.log('hi');
+          console.log('hi');
+        `],
+        // 'ok',
+        ['_\`no\`_', '\`yes\`']
+      )
+    }
+
+  }
+}
+
+
 export default [
   'Template Strings',
   // [Variable, 1],
-  [QuotesInsideQuotes, 1]
+  // [QuotesInsideQuotes, 1],
+  [Multiline_S, 1]
 ];

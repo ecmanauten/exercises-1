@@ -346,8 +346,8 @@ function DoubleDeclaration() {
     widgets: {
       radio: this.radioCode(
         `SyntaxError`,
-        `${value1}`,
-        `${value2}`
+        `'${value1}'`,
+        `'${value2}'`
       ),
       radio2: this.radio('no', ['yes'])
     },

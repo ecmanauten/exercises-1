@@ -45,9 +45,14 @@ function QuotesInsideQuotes() {
 
       Choose the answer:
 
-      \`'"${ quote }", said ${ character }'\`
+      {{ radio }}
 
-      `
+    `,
+
+    widgets: { radio: radio(
+      block`'"${ quote }", said ${ character }'\n123`,
+      [ 'false' ]
+    ) }
   }
 }
 
@@ -80,6 +85,6 @@ function Multiline_S() {
 export default [
   'Template Strings',
   // [Variable, 1],
-  // [QuotesInsideQuotes, 1],
-  [Multiline_S, 1]
+  [QuotesInsideQuotes, 1]
+  // [Multiline_S, 1]
 ];

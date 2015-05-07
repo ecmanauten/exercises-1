@@ -106,7 +106,7 @@ Template Strings
 
 ## Blueprint
 
-### Interpolation: Hello, %username
+### Interpolation: Single Variable 1
     let username = 'root';
     let greeting = `Hello, ${ username }`;
 
@@ -115,7 +115,14 @@ Template Strings
 - 'Hello, username'
 - 'Hello, '
 
-### Interpolation: Single Literal Substitution
++ Shadow `#`/`` Error
++ Desugaring
++ Undefined
+
+> Unlike CoffeeScript, ES6...
+
+
+### Interpolation: Single Variable 2
     let n = 15;
     console.log(`Oh, ${ n } alligators!`);
 
@@ -125,35 +132,50 @@ Template Strings
 - 'Oh, undefined alligators'
 - SyntaxError
 
-### Interpolation: Triple Substitution
++ Shadow `#`/`` Error
++ Desugaring
++ Undefined
+
+
+### Interpolation: Double Substitution
     let item1 = 'voice';
     let item2 = 'volcano';
-    let item3 = 'ornament';
     
-    let demand = `I need your ${ item1 }, your ${ item2 }, and your ${ item3 }`;
+    let demand = `I need your ${ item1 } and your ${ item3 }`;
 
-- 'I need your voice, your volcano and your ornament'
-- 'I need your ${ item1 }, your ${ item2 }, and your ${ item3 }'
-- 'I need your item1, your item2, and your item3'
-- 'I need your undefined, your undefined, and your undefined'
+- 'I need your voice and your ornament'
+- 'I need your ${ item1 } and your ${ item3 }'
+- 'I need your item1 and your item3'
+- 'I need your undefined and your undefined'
 - SyntaxError
 
-### Expressions: Math Expressions
-    var x = 1;
-    var y = 2;
-    `${ x } + ${ y } = ${ x + y }`  // "1 + 2 = 3"
++ Shadow `#`/`` Error
++ Desugaring
++ Undefined
 
-### Expressions: Math Expressions
-    var a = 5;
-    var b = 10;
-    console.log(`Fifteen is ${a + b} and\nnot ${2 * a + b}.`);
-    // "Fifteen is 15 and
-    // not 20."
+
+### Expressions: Math Expressions 1
+    let x = 1, y = 2;
+    `${ x } + ${ y } = ${ x + y }`
+
+Enter the resulting string (without quotes)
+> Input [[ 1 + 2 = 3 ]]
+
 
 ### Expressions: Template String Inside Template String
-### Expressions: Any Expression Inside Interpolation
-- function?
-- ternary?
+    let lang = 'React';
+    let str = `So You ${ `Can ${ lang }` } While You ${ lang }`;
+
+> React, LISP, Recurse, Code, Sleep, Eat...
+
+- 'So You Can React While You React'
+- 'So You ${ `Can ${ lang }` } While You ${ lang }'
+- 'So You Can ${ lang } While You React'
+- 'SyntaxError'
+- 'So You Can undefined While You React'
+
++ Shadow `#`/`` Error
+
 
 ### Quotes: Two Types of Quotes
     let artist = 'Lil B';
@@ -165,21 +187,36 @@ Template Strings
 - SyntaxError
 - '"undefined", undefined'
 
-### Quotes: Three Types of Quotes + Unicode
-    `He said: 'We're going to ${ city } to find "🐢" there.'`
 
 ### Quotes: Escaping Backticks
     let markdown = `The variable \`result\` bound to the context.`;
 
-### Error: Wrong Interpolation Symbol
-### Error: Interpolation variable is undefined
+- 'The variable `result` bound to the context.'
+- 'The variable \`result\` bound to the context.'
+- 'The variable undefined bound to the context.'
+- 'The variable \'
+- SyntaxErorr
+
+
 ### Error: SyntaxError because of quotes
+    let markdown = `The variable `result` bound to the context.`;
+
+- SyntaxErorr
+- 'The variable `result` bound to the context.'
+- 'The variable \`result\` bound to the context.'
+- 'The variable undefined bound to the context.'
+- 'The variable \'
+
 
 ### Multiline: Strings Simple
-    console.log(`string text line 1
-    string text line 2`);
-    // "string text line 1
-    // string text line 2"
+    console.log(`Disruptive
+    innovation`);
+
+- 'Disruptive\ninnovation'
+- 'Disruptive innovation'
+- 'Disruptiveinnovation'
+- SyntaxError
+
 
 ### Multiline: Strings Surprise Indents
     var s = `a
@@ -187,7 +224,24 @@ Template Strings
         c`;
     assert(s === 'a\n    b\n    c');
 
-### Tagged: String.raw
-    String.raw`a\n${ 42 }b`  // "a\\n42b"
+- 'a\n    b\n    c'
+- 'a    \nb    \nc'
+- 'abc'
+- 'a\nb\nc'
+- SyntaxError
 
-    String.raw`Hi\n${2+3}!`; // "Hi\\n5!"
+
+### String.Raw
+    let name = 'Bob';
+    String.raw`Hi\n${name}!`;
+    // 'Hi\\nBob!', substitutions are processed.
+
+- 'Hi\\nBob!'
+-
+    'Hi
+    Bob!'
+- SyntaxError
+
+
+### Error: Wrong Interpolation Symbol
+### Error: Interpolation variable is undefined

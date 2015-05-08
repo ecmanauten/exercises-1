@@ -22,8 +22,8 @@ export default {
     return {
       type: 'Radio',
       props: {
-        answer: `\`${answer}\``,
-        options: options.map(option => `\`${ option }\``)
+        answer: `\`\`\`${answer}\`\`\``,
+        options: options.map(option => `\`\`\`${ option }\`\`\``)
       }
     };
   },

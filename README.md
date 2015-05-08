@@ -41,6 +41,9 @@ Generate random integer in a range from `a` to `b`, inclusively.
 #### `rnd(<Array>list)`
 Pick random element of a given `list`.
 
+#### `rnd(<Array>list, <Int>n)`
+Pick `n` random elements of a given `list`.
+
 
 ### List of lists
 Pick random elements from collection of lists.

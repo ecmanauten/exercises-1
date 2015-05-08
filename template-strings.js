@@ -7,8 +7,8 @@
 
 import list from 'list-of-lists';
 import rnd from './utils/rnd';
-import { radio, check, radioCode } from './utils/widget-helpers';
-import { mdCodeBlock as block } from 'cooked';
+import { radio, radioCode, check, input } from './utils/widget-helpers';
+import { mdCodeBlock as block, capitalCase as cap } from 'cooked';
 
 
 function InterpolationSingle1() {
@@ -232,7 +232,7 @@ function InterpolationDouble_Shadow() {
 
 
 function InterpolationDouble_Undefined() {
-  const [varName, trickName] = list.variableNames(2);
+  const [ varName, trickName ] = list.variableNames(2);
   const [ item1, item2 ] = list.nouns(2);
   const s = rnd() ? ' ' : '';
 
@@ -252,6 +252,56 @@ function InterpolationDouble_Undefined() {
       `'I need your \${${s}${trickName}1${s}} and your \${${s}${trickName}2${s}}'`,
       `'I need your ${item1} and your ${item2}'`,
       `'I need your ${trickName}1 and your ${trickName}2'`,
+      `SyntaxError`
+    ) }
+  }
+}
+
+
+function InterpolationMathExpressions() {
+  const [x, y] = list.letterPairs();
+  const n = rnd(1, 10);
+  const m = rnd(1, 10);
+  const s = rnd() ? ' ' : '';
+
+  return {
+    problem: `
+      What will this code output?
+
+          let ${x} = ${n}, ${y} = ${m};
+          console.log(\`\${${s}${x}${s}} + \${${s}${y}${s}} = \${${s}${x} + ${y}${s}}\`);
+
+      Enter the resulting string (without quotes):
+
+      {{ input }}
+    `,
+
+    widgets: { input: input(`${n} + ${m} = ${n + m}`) }
+  }
+}
+
+
+function TemplateStringInsideTemplateString() {
+  const verb = cap`${list.verbs()}`;
+  const s = rnd() ? ' ' : '';
+
+  console.log(cap`hello`);
+
+  return {
+    problem: `
+      What will this code output?
+
+          let verb = '${verb}';
+          console.log(\`So You \${ \`Can \${ verb }\` } While You \${ verb }\`);
+
+      {{ radio }}
+    `,
+
+    widgets: { radio: radioCode(
+      `'So You Can ${ verb } While You ${ verb }'`,
+      `'So You \${ \`Can \${ lang }\` } While You \${ lang }'`,
+      `'So You Can \${ lang } While You ${ verb }'`,
+      `'So You Can undefined While You ${ verb }'`,
       `SyntaxError`
     ) }
   }
@@ -286,22 +336,22 @@ function QuotesInsideQuotes() {
 export default [
   'Template Strings',
 
-  [InterpolationSingle1, 2],
-  [InterpolationSingle1_Shadow,
-   InterpolationSingle1_Undefined, 1],
+  // [InterpolationSingle1, 2],
+  // [InterpolationSingle1_Shadow,
+  //  InterpolationSingle1_Undefined, 1],
 
-  [InterpolationSingle2, 2],
-  [InterpolationSingle2_Shadow,
-   InterpolationSingle2_Undefined, 1],
+  // [InterpolationSingle2, 2],
+  // [InterpolationSingle2_Shadow,
+  //  InterpolationSingle2_Undefined, 1],
 
-  [InterpolationDouble,
-   InterpolationDouble_Shadow, 2],
-  [InterpolationDouble_Undefined, 1]
+  // [InterpolationDouble,
+  //  InterpolationDouble_Shadow, 2],
+  // [InterpolationDouble_Undefined, 1]
 
   // InterpolationDesugar
 
-  // InterpolationMathExpressions
-  // TemplateStringInsideTemplateString
+  // [InterpolationMathExpressions, 1]
+  [TemplateStringInsideTemplateString, 1]
 
   // [QuotesInsideQuotes, 1],
 

@@ -177,6 +177,87 @@ function InterpolationSingle2_Undefined() {
 }
 
 
+function InterpolationDouble() {
+  const varName = list.variableNames();
+  const [ item1, item2 ] = list.nouns(2);
+  const s = rnd() ? ' ' : '';
+
+  return {
+    problem: `
+      What will this code output?
+
+          let ${varName}1 = '${item1}';
+          let ${varName}2 = '${item2}';
+          console.log(\`I need your \${${s}${varName}1${s}} and your \${${s}${varName}2${s}}\`);
+
+      {{ radio }}
+    `,
+
+    widgets: { radio: radioCode(
+      `'I need your ${item1} and your ${item2}'`,
+      `'I need your \${${s}${varName}1${s}} and your \${${s}${varName}2${s}}'`,
+      `'I need your ${varName}1 and your ${varName}2'`,
+      `'I need your undefined and your undefined'`,
+      `SyntaxError`
+    ) }
+  }
+}
+
+
+function InterpolationDouble_Shadow() {
+  const varName = list.variableNames();
+  const [ item1, item2 ] = list.nouns(2);
+  const s = rnd() ? ' ' : '';
+
+  return {
+    problem: `
+      What will this code output?
+
+          let ${varName}1 = '${item1}';
+          let ${varName}2 = '${item2}';
+          console.log(\`I need your #{${s}${varName}1${s}} and your #{${s}${varName}2${s}}\`);
+
+      {{ radio }}
+    `,
+
+    widgets: { radio: radioCode(
+      `'I need your #{${s}${varName}1${s}} and your #{${s}${varName}2${s}}'`,
+      `'I need your ${item1} and your ${item2}'`,
+      `'I need your ${varName}1 and your ${varName}2'`,
+      `'I need your undefined and your undefined'`,
+      `SyntaxError`
+    ) }
+  }
+}
+
+
+function InterpolationDouble_Undefined() {
+  const [varName, trickName] = list.variableNames(2);
+  const [ item1, item2 ] = list.nouns(2);
+  const s = rnd() ? ' ' : '';
+
+  return {
+    problem: `
+      What will this code output?
+
+          let ${varName}1 = '${item1}';
+          let ${varName}2 = '${item2}';
+          console.log(\`I need your \${${s}${trickName}1${s}} and your \${${s}${trickName}2${s}}\`);
+
+      {{ radio }}
+    `,
+
+    widgets: { radio: radioCode(
+      `'I need your undefined and your undefined'`,
+      `'I need your \${${s}${trickName}1${s}} and your \${${s}${trickName}2${s}}'`,
+      `'I need your ${item1} and your ${item2}'`,
+      `'I need your ${trickName}1 and your ${trickName}2'`,
+      `SyntaxError`
+    ) }
+  }
+}
+
+
 function QuotesInsideQuotes() {
   const { song, artist } = list.pitchforkBestSongs2014();
 
@@ -202,7 +283,6 @@ function QuotesInsideQuotes() {
 }
 
 
-
 export default [
   'Template Strings',
 
@@ -212,10 +292,13 @@ export default [
 
   [InterpolationSingle2, 2],
   [InterpolationSingle2_Shadow,
-   InterpolationSingle2_Undefined, 1]
+   InterpolationSingle2_Undefined, 1],
 
-  // InterpolationSingle2
-  // InterpolationDouble
+  [InterpolationDouble,
+   InterpolationDouble_Shadow, 2],
+  [InterpolationDouble_Undefined, 1]
+
+  // InterpolationDesugar
 
   // InterpolationMathExpressions
   // TemplateStringInsideTemplateString

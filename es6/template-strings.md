@@ -141,11 +141,11 @@ Template Strings
     let item1 = 'voice';
     let item2 = 'volcano';
     
-    let demand = `I need your ${ item1 } and your ${ item3 }`;
+    let demand = `I need your ${ item1 } and your ${ item2 }`;
 
 - 'I need your voice and your ornament'
-- 'I need your ${ item1 } and your ${ item3 }'
-- 'I need your item1 and your item3'
+- 'I need your ${ item1 } and your ${ item2 }'
+- 'I need your item1 and your item2'
 - 'I need your undefined and your undefined'
 - SyntaxError
 

@@ -8,7 +8,7 @@
 
 export default {
 
-  radio(answer, options) {
+  radio(answer, options = []) {
     return {
       type: 'Radio',
       props: {

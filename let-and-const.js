@@ -209,8 +209,6 @@ function ConstWithoutAssignment() {
 
       {{ radio }}
 
-      _Consider that we're using [Babel](http://babeljs.io)._
-
     `,
 
     widgets: { radio: this.radioCode(

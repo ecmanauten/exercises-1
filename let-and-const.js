@@ -148,7 +148,7 @@ function MultipleAssignment3() {
 
       __Answer: \`undefined\`.__
 
-      Multiple assignment of \`let\` and \`const\` works the same as \`var\`.
+      Multiple assignment of \`let\` and \`const\` works the same as \`var\`. Variable \`letter\` doesn't have any assigned value, so it equals \`undefined\` given by default.
 
     `
   };
@@ -173,13 +173,11 @@ function MutateConst() {
 
       {{ radio }}
 
-      _Consider that we're using Chrome or Firefox._
-
     `,
 
     widgets: { radio: this.radioCode(
-        `${ magicNumber }`,
         'SyntaxError',
+        `${ magicNumber }`,
         `${ integer }`,
         'undefined',
         `${ variableName }`
@@ -187,9 +185,9 @@ function MutateConst() {
 
     solution: `
 
-      __Answer: \`${ magicNumber }\`.__
+      __Answer: \`SyntaxError\`.__
 
-      Trying to re-assignment a constant should throws an error, but this will fail silently in Firefox and Chrome. Constant value remains the same.
+      According to ES6 specs, trying to re-assignment a constant throws a \`SyntaxError\`. _(But this will fail silently in Firefox and Chrome)_.
 
     `
   };
@@ -225,7 +223,7 @@ function ConstWithoutAssignment() {
 
       __Answer: \`SyntaxError\`.__
 
-      Constant statement \`const\` requires an initializer, e.g. initial assignment using \`=\` or other assignment operators. But Chrome and Firefox behave differently: they silently assign \`undefined\` value to empty constant.
+      Constant statement \`const\` requires an initializer, e.g. initial assignment using \`=\` or other assignment operators. _(But Chrome and Firefox behave differently: they silently assign \`undefined\` value to empty constant)_.
 
     `
   };
@@ -257,16 +255,16 @@ function TemporalDeadZone1() {
     `,
 
     widgets: { radio: this.radio(
-        `\`undefined\`, \`'${value2}'\``, [
+        '`ReferenceError`', [
+        `\`undefined\`, \`'${value2}'\``,
         '`undefined`, `undefined`',
         `\`'${value1}'\`, \`'${value2}'\``,
-        `\`'${value1}'\`, \`undefined\``,
-        '`ReferenceError`'
+        `\`'${value1}'\`, \`undefined\``
       ]) },
 
     solution: `
 
-      __Answer: \`undefined\`, \`'${value2}'\`.__
+      __Answer: \`ReferenceError\`.__ (Because of [_temporal dead zone_](http://jsrocks.org/2015/01/temporal-dead-zone-tdz-demystified/)).
 
       Regular \`var\` declaration “hoists” to the top of their current scope. That allows to use variable now and declare it later. But this isn't a case for \`let\`.
 
@@ -310,9 +308,9 @@ function TemporalDeadZone2() {
 
     solution: `
 
-      __Answer: \`ReferenceError\`.__
+      __Answer: \`'${value1}'\`, \`'${value2}'\`.__
 
-      Regular \`var\` declaration “hoists” to the top of their current scope. That allows to use variable now and declare it later. But this isn't a case for \`let\`.
+      Regular \`var\` declaration “hoists” to the top of their current scope. That allows to use variable now and declare it later as opposed to statement \`let\`, which uses a concept of [_temporal dead zone_](http://jsrocks.org/2015/01/temporal-dead-zone-tdz-demystified/).
 
     `
   };
@@ -384,19 +382,17 @@ function NoHoistingForLetAndConst() {
 
     widgets: {
       radio: this.radioCode(
-        `undefined`,
         `SyntaxError`,
+        `undefined`,
         `'${value}'`,
         `${name}`
       ) },
 
     solution: `
 
-      __Answer: \`undefined\`.__ There is no _hoisting_ for \`let\` and \`const\`.
+      __Answer: \`SyntaxError\`.__
 
-      First line assigns value \`'${value}'\` to variable \`${name}\`. If there is not such variable and declaration statement has been omitted (like \`var\`, \`let\` or \`const\`) then it creates a global variable with corresponding value.
-
-      The second line declares identifier \`${name}\` in the local block scope with default value of \`undefined\`. Newly created bound identifier \`${name}\` is overriding the previously created global variable \`${name}\` in this scope.
+      There is no _hoisting_ for \`let\` and \`const\` because of [_temporal dead zone_](http://jsrocks.org/2015/01/temporal-dead-zone-tdz-demystified/).
 
     `
   };
@@ -543,7 +539,7 @@ function WhileLoop() {
 
       __Answer: yes.__
 
-      Variable declared outside of \`while\` loop, therefore it accessible outside of the block scope of the loop.
+      Variable declared outside of \`while\` loop, therefore it's accessible outside of the block scope of the loop.
 
     `
   };

@@ -1,5 +1,7 @@
 # Mosaic Academy Exercises
 
+[![Join the chat at https://gitter.im/mosaic-academy/exercises](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mosaic-academy/exercises?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 > What makes a good exercise? It should create an impression that every generated problem is unique.
 
 This is a repository of JavaScript exercises published on [Mosaic.academy](http://mosaic.academy). Pull requests are welcome. API is pretty much in progress. If you have any questions, write me via [Twitter](https://twitter.com/surganov).

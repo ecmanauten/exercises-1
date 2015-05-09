@@ -34,7 +34,15 @@ function InterpolationSingle1() {
       `'Hello, ${username}'`,
       `'Hello, undefined'`,
       `SyntaxError`
-    ) }
+    ) },
+
+    solution: `
+
+      __Answer: \`'Hello, ${name}'\`.__
+
+      Substitution \`\${${_}${username}${_}}\` is replaced by the value of variable \`${username}\`.
+
+    `
   }
 }
 
@@ -63,7 +71,15 @@ function InterpolationSingle1_Shadow() {
       `'Hello, ${username}'`,
       `'Hello, undefined'`,
       `SyntaxError`
-    ) }
+    ) },
+
+    solution: `
+
+      __Answer: \`'Hello, ${$}{${_}${username}${_}}'\`.__
+
+      \`${$}{${_}${username}${_}}\` is not a valid substitution. Correct form is \`\${${_}${username}${_}}\`.
+
+    `
   }
 }
 
@@ -92,7 +108,15 @@ function InterpolationSingle1_Undefined() {
       `'Hello, ${name}'`,
       `'Hello, ${username2}'`,
       `SyntaxError`
-    ) }
+    ) },
+
+    solution: `
+
+      __Answer: \`'Hello, undefined'\`.__
+
+      Substitution \`\${${_}${username2}${_}}\` is replaced by the value of variable \`${username2}\`, which is \`undefined\` in this case. Don't be fooled by usage of different variables \`${username1}\` and \`${username2}\`.
+
+    `
   }
 }
 
@@ -119,7 +143,15 @@ function InterpolationSingle2() {
       `'${i} ${animals}'`,
       `SyntaxError`,
       `'NaN ${animals}'`
-    ) }
+    ) },
+
+    solution: `
+
+      __Answer: \`'${k} ${animals}'\`.__
+
+      Substitution \`\${${_}${i}${_}}\` is replaced by the value of variable \`${i}\`.
+
+    `
   }
 }
 
@@ -147,7 +179,15 @@ function InterpolationSingle2_Shadow() {
       `'${i} ${animals}'`,
       `SyntaxError`,
       `'NaN ${animals}'`
-    ) }
+    ) },
+
+    solution: `
+
+      __Answer: \`'${$}{${_}${i}${_}} ${animals}'\`.__
+
+      \`${$}{${_}${i}${_}}\` is not a valid substitution. Correct form is \`\${${_}${i}${_}}\`.
+
+    `
   }
 }
 
@@ -174,7 +214,15 @@ function InterpolationSingle2_Undefined() {
       `'${n} ${animals}'`,
       `'${i} ${animals}'`,
       `SyntaxError`
-    ) }
+    ) },
+
+    solution: `
+
+      __Answer: \`'undefined ${animals}'\`.__
+
+      Substitution \`\${${_}${k}${_}}\` is replaced by the value of variable \`${k}\`, which is \`undefined\` in this case. Don't be fooled by usage of different variables \`${i}\` and \`${k}\`.
+
+    `
   }
 }
 
@@ -201,7 +249,15 @@ function InterpolationDouble() {
       `'I need your ${varName}1 and your ${varName}2'`,
       `'I need your undefined and your undefined'`,
       `SyntaxError`
-    ) }
+    ) },
+
+    solution: `
+
+      __Answer: \`'I need your ${item1} and your ${item2}'\`.__
+
+      Substitutions \`\${${_}${varName}1${_}}\` and \`\${${_}${varName}2${_}}\` are replaced by the values of variables \`${varName}1\` and \`${varName}2\`, respectively.
+
+    `
   }
 }
 
@@ -229,7 +285,15 @@ function InterpolationDouble_Shadow() {
       `'I need your ${varName}1 and your ${varName}2'`,
       `'I need your undefined and your undefined'`,
       `SyntaxError`
-    ) }
+    ) },
+
+    solution: `
+
+      __Answer: \`'I need your ${$}{${_}${varName}1${_}} and your ${$}{${_}${varName}2${_}}'\`.__
+
+      \`${$}{${_}${varName}1${_}}\` is not a valid substitution. Correct form is \`\${${_}${varName}1${_}}\`.
+
+    `
   }
 }
 
@@ -256,7 +320,15 @@ function InterpolationDouble_Undefined() {
       `'I need your ${item1} and your ${item2}'`,
       `'I need your ${trickName}1 and your ${trickName}2'`,
       `SyntaxError`
-    ) }
+    ) },
+
+    solution: `
+
+      __Answer: \`'I need your undefined and your undefined'\`.__
+
+      Substitutions \`\${${_}${varName}1${_}}\` and \`\${${_}${varName}2${_}}\` are replaced by the values of variables \`${varName}1\` and \`${varName}2\`, which is both \`undefined\` in this case. Don't be fooled by usage of different variables \`${varName}1\`/\`${trickName}1\` and \`${varName}2\`/\`${trickName}2\`.
+
+    `
   }
 }
 
@@ -281,7 +353,15 @@ function MathExpressionsInterpolation() {
       {{ input }}
     `,
 
-    widgets: { input: input(`${n} ${op} ${m} = ${result}`) }
+    widgets: { input: input(`${n} ${op} ${m} = ${result}`) },
+
+    solution: `
+
+      __Answer: \`'${n} ${op} ${m} = ${result}'\`.__
+
+      Substitutions \`\${${_}${x}${_}}\` and \`\${${_}${y}${_}}\` are replaced by the values of the corresponding variables. The substitution \`\${${_}${x} ${op} ${y}${_}}\` are replaced by the value of the expression \`${x} ${op} ${y}\`, which computes to \`${n} ${op} ${m}\` or, in the end, to \`${result}\`.
+
+    `
   }
 }
 
@@ -310,7 +390,15 @@ function MathExpressionsDesugar() {
       `'${x}' + ', ' + '${y}' + ' and ' + '${z}'`,
       `'\${${_}${x}${_}}, \${${_}${y}${_}} and \${${_}${z}${_}}'`,
       `'${n}, ${m} and ${k}'`
-    ) }
+    ) },
+
+    solution: `
+
+      __Answer: \`${x} + ', ' + ${y} + ' and ' + ${z}\`.__
+
+      We can desugar interpolated template strings into concatenation of consecutive list of string literals and arbitrary expressions (which implicitly converted to a string type).
+
+    `
   }
 }
 
@@ -337,7 +425,15 @@ function TemplateStringInsideTemplateString() {
       `'So You Can \${ verb } While You ${ verb }'`,
       `'So You Can undefined While You ${ verb }'`,
       `SyntaxError`
-    ) }
+    ) },
+
+    solution: `
+
+      __Answer: \`'So You Can ${ verb } While You ${ verb }'\`.__
+
+      It is possible to use another template string as part of substitution.
+
+    `
   }
 }
 
@@ -363,7 +459,15 @@ function QuotesInsideQuotes() {
       `'"song", artist'`,
       `SyntaxError`,
       `'"undefined", undefined'`
-    ) }
+    ) },
+
+    solution: `
+
+      __Answer: \`'"${ song }", ${ artist }'\`.__
+
+      This is an usual template string substitution, despite of using regular string quotes \`"\` inside, which are processed as a plain string characters.
+
+    `
   }
 }
 
@@ -387,7 +491,15 @@ function BackticksEscaping() {
       `'The variable ${varName} bound to the context.'`,
       `'The variable \\'`,
       `SyntaxError`
-    ) }
+    ) },
+
+    solution: `
+
+      __Answer: \`\`\`'The variable \`${varName}\` bound to the context.'\`\`\`.__
+
+      It is possible to use backtick symbol inside template string literal by using escape character \`\\\`.
+
+    `
   }
 }
 
@@ -411,7 +523,15 @@ function BackticksSyntaxError() {
       `'The variable \\\`${varName}\\\` bound to the context.'`,
       `'The variable ${varName} bound to the context.'`,
       `'The variable \\'`
-    ) }
+    ) },
+
+    solution: `
+
+      __Answer: \`SyntaxError\`.__
+
+      It's an error because of forgotten escape character \`\\\` before each backtick inside template string literal.
+
+    `
   }
 }
 
@@ -436,7 +556,15 @@ function MultilineSimple() {
       `'${word1}${word2}'`,
       `'${word1}'`,
       `SyntaxError`
-    ) }
+    ) },
+
+    solution: `
+
+      __Answer: \`'${word1}\\n${word2}'\`.__
+
+      Any new line characters inserted in the source code are part of the template string.
+
+    `
   }
 }
 
@@ -462,7 +590,15 @@ function MultilineIndents() {
       `'${a}${b}${c}'`,
       `'${a}\\n${b}\\n${c}'`,
       `SyntaxError`
-    ) }
+    ) },
+
+    solution: `
+
+      __Answer: \`'${a}\\n    ${b}\\n    ${c}'\`.__
+
+      Any new line characters inserted in the source code are part of the template string. Including indents, unfortunately.
+
+    `
   }
 }
 
@@ -488,7 +624,15 @@ function StringRaw() {
       `'Hi${name}!'`,
       `'Hi\\nname!'`,
       `SyntaxError`
-    ) }
+    ) },
+
+    solution: `
+
+      __Answer: \`'Hi\\\\n${name}!'\`.__
+
+      Special method \`String.raw\` is being used in the form of tagged template and allows to access the raw strings as they were entered.
+
+    `
   }
 }
 
@@ -509,9 +653,9 @@ export default [
   [InterpolationDouble_Undefined, 1],
 
   [MathExpressionsInterpolation, 2],
-  [MathExpressionsDesugar, 2]
+  [MathExpressionsDesugar, 2],
 
-  [TemplateStringInsideTemplateString, 1],
+  [TemplateStringInsideTemplateString, 2],
   [QuotesInsideQuotes, 2],
 
   [BackticksEscaping, 1],

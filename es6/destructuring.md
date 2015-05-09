@@ -63,3 +63,10 @@ Destructuring assignment
     books.forEach(function ({title, author}) {
       console.log(title, 'is written by', author);
     });
+
+    const { adwark: a } = { adwark: 'ok' };
+    console.log(a);
+
+    function displayPerson({name, age}) {
+        console.log(name);
+    }

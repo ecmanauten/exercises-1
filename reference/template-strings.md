@@ -8,7 +8,7 @@ Template strings provide syntactic sugar for constructing strings. This is simil
      not legal.`
 
     // String interpolation
-    var name = "Bob", time = "today";
+    let name = "Bob", time = "today";
     `Hello ${name}, how are you ${time}?`
 
     // Construct an HTTP request prefix is used to interpret the replacements and construction

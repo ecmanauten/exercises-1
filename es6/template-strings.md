@@ -245,3 +245,4 @@ Enter the resulting string (without quotes)
 
 ### Error: Wrong Interpolation Symbol
 ### Error: Interpolation variable is undefined
+### Error: Actual Syntax Error

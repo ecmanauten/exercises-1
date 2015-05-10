@@ -355,10 +355,9 @@ function ComputedProperty_XL() {
 }
 
 
-function ShorthandMethod_S() {
+function ShorthandMethod_S_Right() {
   const name = list.names();
   const variation = rnd() ? '()' : ':';
-  const answer = (variation === '()') ? true : false;
   const [obj, foo] = list.variableNames(2);
   const bar = list.reserved();
 
@@ -367,7 +366,7 @@ function ShorthandMethod_S() {
       Consider the following code:
 
           let ${obj} = {
-            ${foo}${variation} { return '${bar}'; }
+            ${foo}() { return '${bar}'; }
           };
 
       Is this a valid way to create object \`${obj}\` with method \`${foo}\`?
@@ -376,13 +375,49 @@ function ShorthandMethod_S() {
 
     `,
 
-    widgets: { yesNo: yesNo(answer) },
+    widgets: { yesNo: yesNo(true) },
 
     solution: `
 
-      __Answer: ${answer ? 'yes' : 'no'}.__
+      __Answer: 'yes'.__
 
-      Method name shorthand notation allows to omit the keyword \`function\` and doesn't use colon \`:\`.
+      Method name shorthand notation allows to omit the keyword \`function\` and colon \`:\`.
+
+    `
+  }
+}
+
+
+function ShorthandMethod_S_Wrong() {
+  const name = list.names();
+  const [obj, foo] = list.variableNames(2);
+  const bar = list.reserved();
+
+  return {
+    problem: `
+      Consider the following code:
+
+          let ${obj} = {
+            ${foo}: { return '${bar}'; }
+          };
+
+      Is this a valid way to create object \`${obj}\` with method \`${foo}\`?
+
+      {{ yesNo }}
+
+    `,
+
+    widgets: { yesNo: yesNo(false) },
+
+    solution: `
+
+      __Answer: 'no'.__
+
+      This isn't a correct use of method name shorthand notation. The correct one looks like this (mind the \`()\` instead of \`:\`):
+
+          let ${obj} = {
+            ${foo}() { return '${bar}'; }
+          };
 
     `
   }
@@ -475,7 +510,7 @@ export default [
   [ComputedProperty_L_Reverse, 1],
   [ComputedProperty_XL, 1],
 
-  [ShorthandMethod_S, 1],
+  [ShorthandMethod_S_Right, ShorthandMethod_S_Wrong, 1],
   [ShorthandMethodAndProperty_L, 1],
   [ShorthandMethodAndProperty_XL, 1]
 ];

@@ -5,19 +5,21 @@
 
 'use strict';
 
+import list from 'list-of-lists';
+import rnd from './utils/rnd';
 
-function SimpleDeclaration() {
-  const name = this.rnd(this.list.names);
+
+function SimpleDeclaration1() {
+  const name = list.names();
+  const varName = list.variableNames();
 
   return {
     problem: `
 
-          ${ this.rnd() ?
-          `var name;
-          name = "${name}";` :
-          `var name = "${name}";` }
+          var ${varName};
+          name = "${name}";
 
-      Which value stored in variable \`name\`?
+      What value is stored in variable \`${varName}\`?
 
       {{ radio }}
 
@@ -34,38 +36,40 @@ function SimpleDeclaration() {
 
       __Answer: \`"${name}"\`.__
 
+      This is an example of using variable declaration and assignment statements separately.
+
     `
   };
 }
 
 
-function TheResultIs() {
-  const a = this.rnd(1, 10);
-  const b = this.rnd(1, 10);
-  const variableName = this.rnd(this.list.variableNames);
+function SimpleDeclaration2() {
+  const name = list.names();
+  const varName = list.variableNames();
 
   return {
     problem: `
 
-          var answer = ${a} + ${b}
-          result = "The result is: " + answer;
+          var ${varName} = "${name}";
 
-      Which value stored in variable \`result\`?
+      What value is stored in variable \`${varName}\`?
 
       {{ radio }}
 
     `,
 
     widgets: { radio: this.radioCode(
-      `"The result is: ${a + b}"`,
-      `answer`,
-      `result`,
-      `${a + b}`
+      `"${name}"`,
+      `${varName}`,
+      `var`,
+      `undefined`
     ) },
 
     solution: `
 
-      __Answer: \`"The result is: ${a + b}"\`.__
+      __Answer: \`"${name}"\`.__
+
+      This is an example of combination of variable declaration with variable initialization.
 
     `
   };
@@ -87,7 +91,7 @@ function StoreExpression() {
           ${variableName} = ${expression};` :
           `var ${variableName} = ${expression};` }
 
-      Which value stored in variable \`${variableName}\`?
+      What value is stored in variable \`${variableName}\`?
 
       {{ radio }}
 
@@ -104,6 +108,8 @@ function StoreExpression() {
     solution: `
 
       __Answer: \`${a + b}\`.__
+
+      It is legal to assign not only literal values (e.g. \`${a}\`) but also expressions (e.g. \`${a} + ${b}\`) to variables.
 
     `
   };
@@ -127,7 +133,7 @@ function ReAssignment() {
           `var ${variableName} = ${randomNumber};
           ${variableName} = "${randomWord}";` }
 
-      Which value stored in variable \`${variableName}\`?
+      What value is stored in variable \`${variableName}\`?
 
       {{ radio }}
 
@@ -145,6 +151,8 @@ function ReAssignment() {
 
       __Answer: \`"${randomWord}"\`.__
 
+      Repeated use of assignment operator \`=\` to the same variable re-writes its value to the later one.
+
     `
   };
 }
@@ -152,14 +160,13 @@ function ReAssignment() {
 
 function Undefined1() {
   const variableName = this.rnd(this.list.variableNames);
-  const variation = `var ${variableName};`;
 
   return {
     problem: `
 
-          ${variation}
+          var ${variableName};
 
-      Which value stored in variable \`${variableName}\`?
+      What value is stored in variable \`${variableName}\`?
 
       {{ radio }}
 
@@ -177,6 +184,8 @@ function Undefined1() {
 
       __Answer: \`undefined\`.__
 
+      If an initial value for a variable is not specified with the \`var\` statement, the variable is declared, but its value is \`undefined\`.
+
     `
   };
 }
@@ -191,7 +200,7 @@ function Undefined2() {
           var firstName;
           var middleName = "${name}";
 
-      Which value stored in variable \`firstName\`?
+      What value is stored in variable \`firstName\`?
 
       {{ radio }}
 
@@ -208,6 +217,8 @@ function Undefined2() {
     solution: `
 
       __Answer: \`undefined\`.__
+
+      If an initial value for a variable is not specified with the \`var\` statement, the variable is declared, but its value is \`undefined\`.
 
     `
   };
@@ -230,7 +241,7 @@ function Undefined3() {
 
           `var ${i}, ${k} = 0;` }
 
-      Which value stored in variable \`${i}\`?
+      What value is stored in variable \`${i}\`?
 
       {{ radio }}
 
@@ -247,6 +258,8 @@ function Undefined3() {
     solution: `
 
       __Answer: \`undefined\`.__
+
+      If an initial value for a variable is not specified with the \`var\` statement, the variable is declared, but its value is \`undefined\`.
 
     `
   };
@@ -281,7 +294,7 @@ function CombinedDeclaration() {
 
           `var ${i} = ${values[i]}, ${k} = ${values[k]}, ${j} = ${values[j]};` }
 
-      Which value stored in variable \`${variable}\`?
+      What value is stored in variable \`${variable}\`?
 
       {{ radio }}
 
@@ -294,7 +307,11 @@ function CombinedDeclaration() {
     ) },
 
     solution: `
+
       __Answer: \`${values[variable]}\`.__
+
+      It's legal to declare more than one variable with single \`var\` statement.
+
     `
   };
 }
@@ -315,7 +332,7 @@ function CombinedDeclaration2() {
 
           var ${i} = ${k} = ${j} = ${value};
 
-      Which value stored in variable \`${variable}\`?
+      What value is stored in variable \`${variable}\`?
 
       {{ radio }}
 
@@ -328,7 +345,11 @@ function CombinedDeclaration2() {
     ) },
 
     solution: `
+
       __Answer: \`${value}\`.__
+
+      It's legal to declare more than one variable with single \`var\` statement.
+
     `
   };
 }
@@ -336,7 +357,7 @@ function CombinedDeclaration2() {
 
 export default [
   'Variable Declaration',
-  [SimpleDeclaration, 3],
+  [SimpleDeclaration1, SimpleDeclaration2, 3],
   [StoreExpression, 3],
   [ReAssignment, 3],
   [Undefined1, Undefined2, Undefined3, 1],

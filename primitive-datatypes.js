@@ -5,12 +5,15 @@
 
 'use strict';
 
+import list from 'list-of-lists';
+import rnd from './utils/rnd';
+import { radioCode as radio } from './utils/widget-helpers';
+
 
 function Strings() {
+  const strings = [ 'Hello, World!', 'Lambda Calculus', 'JavaScript', 'Structure and Interpretation of Computer Programs', 'jQuery', 'Computer Science', '99 problems', 'Nick Cave & The Bad Seeds: The Mercy Seat', 'var', 'let', 'true === 2 + 2', '', 'Infinity', '__', 'Kanye West: \"New Slaves\"', 'The\\nLittle\\nJavaScripter', 'false', 'true', 'undefined', 'null' ];
 
-  let strings = [ 'Hello, World!', 'Lambda Calculus', 'JavaScript', 'Structure and Interpretation of Computer Programs', 'jQuery', 'Computer Science', '99 problems', 'Nick Cave & The Bad Seeds: The Mercy Seat', 'var', 'let', 'true === 2 + 2', '', 'Infinity', '__', 'Kanye West: \"New Slaves\"', 'The\\nLittle\\nJavaScripter', 'false', 'true', 'undefined', 'null' ];
-
-  let randomString = this.rnd(strings);
+  const randomString = rnd(strings);
 
   return {
     problem: `
@@ -23,27 +26,27 @@ function Strings() {
 
     `,
 
-    widgets: { radio: this.radio('`string`', ['`number`', '`boolean`', '`null`', '`undefined`']) },
+    widgets: { radio: radio(
+      `string`,
+      `number`,
+      `boolean`,
+      `null`,
+      `undefined`
+    ) },
 
     solution: `
 
       __Answer: \`string\`.__
 
-      String literal is an string of characters, enclosed in singular \`'\` or double \`\"\` quotes.
+      String literal is a string of characters enclosed in singular \`'\` or double \`\"\` quotes.
 
     `
   };
 };
 
 
-//` annoying syntax hightlighting!
-
-
 function Numbers() {
-
-  let numbers = [ '42', '3.14', '1.617', '140000000', '0.00000000000000000091093822', '13', '100500', '.155', 'Infinity', '-Infinity', '10e23', '0101010001', '9.1093822e−31', 'NaN', '0xCCFF', '1.4738223E-32' ];
-
-  let randomNumber = this.rnd(numbers);
+  const randomNumber = list.magicNumbers();
 
   return {
     problem: `
@@ -56,13 +59,19 @@ function Numbers() {
 
     `,
 
-    widgets: { radio: this.radio('`number`', ['`string`', '`boolean`', '`null`', '`undefined`']) },
+    widgets: { radio: radio(
+      `number`,
+      `string`,
+      `boolean`,
+      `null`,
+      `undefined`
+    ) },
 
     solution: `
 
       __Answer: \`number\`.__
 
-      Number literal is either integer (like \`42\`), float (like \`3.14\`), exponential (like \`10e23\`), hex (like \`0xCCFF\`), \`Infinity\`, \`-Infinity\` or \`NaN\`.
+      Number literal can be _integer_ (e.g. \`42\`) or _float_ (e.g. \`3.14\`) or _exponential_ (e.g. \`10e23\`) or _hex_ (e.g. \`0xCCFF\`) or \`Infinity\`/\`-Infinity\` or \`NaN\`.
 
     `
   };
@@ -70,8 +79,7 @@ function Numbers() {
 
 
 function Booleans() {
-
-  let randomBoolean = this.rnd([ 'true', 'false' ]);
+  let randomBoolean = rnd([ 'true', 'false' ]);
 
   return {
     problem: `
@@ -84,13 +92,19 @@ function Booleans() {
 
     `,
 
-    widgets: { radio: this.radio('`boolean`', ['`number`', '`string`', '`null`', '`undefined`']) },
+    widgets: { radio: radio(
+      `boolean`,
+      `number`,
+      `string`,
+      `null`,
+      `undefined`
+    ) },
 
     solution: `
 
       __Answer: \`boolean\`.__
 
-      Boolean literal is either \`true\` or \`false\`.
+      Boolean literal can be either \`true\` or \`false\`.
 
     `
   };
@@ -98,8 +112,7 @@ function Booleans() {
 
 
 function NullOrUndefined() {
-
-  let specialType = this.rnd([ 'null', 'undefined' ]);
+  let specialType = rnd([ 'null', 'undefined' ]);
   let eitherType = specialType === 'null' ? 'undefined' : 'null';
 
   return {
@@ -113,13 +126,19 @@ function NullOrUndefined() {
 
     `,
 
-    widgets: { radio: this.radio(`\`${specialType}\``, [`\`${eitherType}\``, '`number`', '`string`', '`boolean`']) },
+    widgets: { radio: radio(
+      `${specialType}`,
+      `${eitherType}`,
+      `number`,
+      `string`,
+      `boolean`
+    ) },
 
     solution: `
 
       __Answer: \`${specialType}\`.__
 
-      Special type literal is either \`true\` or \`false\`.
+      Special type literal can be either \`null\` or \`undefined\`.
 
     `
   };
@@ -128,7 +147,7 @@ function NullOrUndefined() {
 
 export default [
   'Primitive Datatypes',
-  [Strings, 5],
+  [Strings, 4],
   [Numbers, 3],
   [Booleans, 2],
   [NullOrUndefined, 1]

@@ -356,7 +356,7 @@ function CombinedDeclaration2() {
 
 
 export default [
-  'Variable Declaration',
+  'Variable declaration',
   [SimpleDeclaration1, SimpleDeclaration2, 3],
   [StoreExpression, 3],
   [ReAssignment, 3],

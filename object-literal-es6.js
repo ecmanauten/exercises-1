@@ -498,7 +498,7 @@ function ShorthandMethodAndProperty_XL() {
 
 
 export default [
-  'Object Literal (ES6)',
+  'Object literal (ES6)',
 
   [ShorthandProperty_S, 2],
   [ShorthandProperty_S2, 2],

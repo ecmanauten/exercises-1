@@ -146,7 +146,7 @@ function NullOrUndefined() {
 
 
 export default [
-  'Primitive Datatypes',
+  'Primitive datatypes',
   [Strings, 4],
   [Numbers, 3],
   [Booleans, 2],

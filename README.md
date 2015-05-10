@@ -2,29 +2,28 @@
 
 [![Join the chat at https://gitter.im/mosaic-academy/exercises](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/mosaic-academy/exercises?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-> What makes a good exercise? It should create an impression that every generated problem is unique.
+_We are going to build a platform for creating and distributing online courses on programming based on reusable blocks of knowledge._
 
-This is a repository of JavaScript exercises published on [Mosaic.academy](http://mosaic.academy). Pull requests are welcome. API is pretty much in progress. If you have any questions, write me via [Twitter](https://twitter.com/surganov).
+This is a repository of JavaScript exercises published on [Mosaic.academy](http://mosaic.academy). Pull requests are welcome. API is pretty much in progress. If you have any questions, write me via [Twitter](https://twitter.com/surganov). Also, take look at [exercises' wiki](https://github.com/mosaic-academy/exercises/wiki/Home.md).
 
 ## Methodology
-1. [Break into pieces](https://github.com/mosaic-academy/exercises/tree/master/es6)
-2. [Google-driven Research](https://github.com/mosaic-academy/exercises/blob/master/es6/README.md)
-3. [Define patterns](https://github.com/mosaic-academy/exercises/blob/master/es6/arrow-functions.md)
-4. [Write blueprint](https://github.com/mosaic-academy/exercises/blob/master/es6/template-strings.md#blueprint)
+1. [Break into pieces](https://github.com/mosaic-academy/exercises/wiki/Home.md)
+2. [Research](https://github.com/mosaic-academy/exercises/wiki/let-and-const#reference)
+3. [Define patterns](https://github.com/mosaic-academy/exercises/wiki/arrow-functions.md)
+4. [Write blueprint](https://github.com/mosaic-academy/exercises/wiki/template-strings.md#blueprint)
 5. [Code & test](https://github.com/mosaic-academy/exercises/blob/master/object-literal-es6.js)
 
+> What makes a good exercise? It should create an impression that every generated problem is unique.
+
 ## Roadmap
-- [ ] ES6 exercises
-- [ ] JS basics exercises
-- [ ] Non-JS exercises
-- [ ] Exam mode
-- [ ] Add support for assignments
-- [ ] Add support for workshops/courses
-- [ ] Add more widgets
-- [ ] Write elaborate docs
-- [ ] Online editor
-- [ ] User profiles
-- [ ] Guides for writing exercises
+- 20+ exercises
+- Exam mode
+- Assignments in the browser
+- Switch to server-side
+- Touch version
+- Embedd exercises
+- User accounts
+- Exercise editor
 
 ## API
 

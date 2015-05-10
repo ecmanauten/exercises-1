@@ -638,7 +638,7 @@ function StringRaw() {
 
 
 export default [
-  'Template Strings',
+  'Template strings',
 
   [InterpolationSingle1, 2],
   [InterpolationSingle1_Shadow,

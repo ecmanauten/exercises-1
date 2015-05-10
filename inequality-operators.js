@@ -352,7 +352,7 @@ function Strings() {
 
 
 export default [
-  'Inequality Operators',
+  'Inequality operators',
   [Numbers, 1],
   [NumberExpressions, 1],
   [ToxicNaN, 1],

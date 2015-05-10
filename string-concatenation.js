@@ -243,7 +243,7 @@ function PlaceholderResult() {
 
 
 export default [
-  'String Concatenation',
+  'String concatenation',
   [Glue, 2],
   [SingleSpace, 2],
   [MultipleSpace, 1],

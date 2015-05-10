@@ -154,7 +154,7 @@ function PlusMinus() {
 
 
 export default [
-  'Increment and Decrement',
+  'Increment and decrement',
   [SimpleIncrement, 1],
   [SimpleDecrement, 1],
   [DoubleIncrement, 1],

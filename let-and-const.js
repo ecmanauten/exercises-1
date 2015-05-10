@@ -619,7 +619,7 @@ function ConstantReference2() {
 
 
 export default [
-  'Let and Const',
+  'Let and const',
   [SingleAssignment, 2],
   [MultipleAssignment1, MultipleAssignment2, 1],
   [TemporalDeadZone1, TemporalDeadZone2, 1],

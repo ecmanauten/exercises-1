@@ -332,7 +332,7 @@ function NaNResult() {
 
 
 export default [
-  'Math Operators',
+  'Math operators',
   [Add, 3],
   [Sub, 1],
   [Mult, 1],

@@ -42,7 +42,7 @@ function SingleAssignment() {
 
       __Answers: \`'${ value }'\` and “yes”.__
 
-      Single variable assignment using \`let\` and \`const\` in this case works the same as using \`var\`.
+      When \`let\` and \`const\` are used for single variable assignment, it works the same way as when \`var\` is used.
 
     `
   };
@@ -76,7 +76,7 @@ function MultipleAssignment1() {
 
       __Answer: \`undefined\`.__
 
-      Multiple assignment using \`let\` and \`const\` works the same as using \`var\`.
+      When \`let\` and \`const\` are used for multiple variable assignment assignment, it works the same way as when \`var\` is used.
 
     `
 
@@ -112,7 +112,7 @@ function MultipleAssignment2() {
 
       __Answer: \`${ value }\`.__
 
-      Multiple assignment using \`let\` and \`const\` works the same as using \`var\`.
+      When \`let\` and \`const\` are used for multiple variable assignment assignment, it works the same way as when \`var\` is used.
 
     `
   };
@@ -148,7 +148,7 @@ function MultipleAssignment3() {
 
       __Answer: \`undefined\`.__
 
-      Multiple assignment of \`let\` and \`const\` works the same as \`var\`. Variable \`letter\` doesn't have any assigned value, so it equals \`undefined\` given by default.
+      When \`let\` and \`const\` are used for multiple variable assignment assignment, it works the same way as when \`var\` is used. Variable \`letter\` doesn't have any assigned value, so it equals \`undefined\` given by default.
 
     `
   };
@@ -187,7 +187,7 @@ function MutateConst() {
 
       __Answer: \`SyntaxError\`.__
 
-      According to ES6 specs, trying to re-assignment a constant throws a \`SyntaxError\`. _(But this will fail silently in Firefox and Chrome)_.
+      According to ES6 specs, trying to re-assign a constant throws a \`SyntaxError\`. _(But this will fail silently in Firefox and Chrome)_.
 
     `
   };
@@ -264,7 +264,7 @@ function TemporalDeadZone1() {
 
       __Answer: \`ReferenceError\`.__ (Because of [_temporal dead zone_](http://jsrocks.org/2015/01/temporal-dead-zone-tdz-demystified/)).
 
-      Regular \`var\` declaration “hoists” to the top of their current scope. That allows to use variable now and declare it later. But this isn't a case for \`let\`.
+      Regular \`var\` declaration “hoists” to the top of its current scope. That allows to use variable before declaring it. This doesn't work for \`let\` that uses a concept of [_temporal dead zone_](http://jsrocks.org/2015/01/temporal-dead-zone-tdz-demystified/).
 
     `
   };
@@ -308,7 +308,7 @@ function TemporalDeadZone2() {
 
       __Answer: \`'${value1}'\`, \`'${value2}'\`.__
 
-      Regular \`var\` declaration “hoists” to the top of their current scope. That allows to use variable now and declare it later as opposed to statement \`let\`, which uses a concept of [_temporal dead zone_](http://jsrocks.org/2015/01/temporal-dead-zone-tdz-demystified/).
+      Regular \`var\` declaration “hoists” to the top of its current scope. That allows to use variable before declaring it. This doesn't work for \`let\` that uses a concept of [_temporal dead zone_](http://jsrocks.org/2015/01/temporal-dead-zone-tdz-demystified/).
 
     `
   };
@@ -352,7 +352,7 @@ function DoubleDeclaration() {
 
       __Answer: \`SyntaxError\` and “no”.__
 
-      Identifier \`${name}\` has already been declared. When using \`let\` or \`const\` this is an illegal operation.
+      Identifier \`${name}\` has already been declared. Using \`let\` or \`const\` is an illegal operation.
 
     `
   };
@@ -428,7 +428,7 @@ function BlockScopeSimple() {
 
       __Answer: \`ReferenceError\`.__
 
-      Keywords \`let\` and \`const\` create new variables scoped to nearest block of code, which denoted by curly braces \`{\` and \`}\`. There is no such identifier \`${name}\` outside that block scope, therefore calling unknown identifier throws \`ReferenceError\`.
+      Keywords \`let\` and \`const\` create new variables scoped to the nearest block of code that is denoted by curly braces \`{\` and \`}\`. There is no such identifier \`${name}\` outside that block scope, therefore calling unknown identifier throws \`ReferenceError\`.
 
     `
   };
@@ -470,7 +470,7 @@ function DeclareOutsideOfBlock() {
 
       __Answer: \`'${value}'\`.__
 
-      It's possible to change the value of variable declared in outer block scope.
+      It's possible to change the value of the variable declared in outer block scope.
 
     `
   };
@@ -490,7 +490,7 @@ function ForLoop() {
             // ...
           }
 
-      Does counter \`${i}\` available outside the loop?
+      Is counter \`${i}\` available outside the loop?
 
       {{ radio }}
 
@@ -502,7 +502,7 @@ function ForLoop() {
 
       __Answer: no.__
 
-      Counter initialization by \`let\` keyword in \`for\` loop keeps that counter inside loop‘s block scope.
+      Counter initialization by \`let\` keyword in \`for\` loop keeps that counter inside loop’s block scope.
 
     `
   };
@@ -525,7 +525,7 @@ function WhileLoop() {
             ${i}++;
           }
 
-      Does counter \`${i}\` available outside the loop?
+      Is counter \`${i}\` available outside the loop?
 
       {{ radio }}
 
@@ -537,7 +537,7 @@ function WhileLoop() {
 
       __Answer: yes.__
 
-      Variable declared outside of \`while\` loop, therefore it's accessible outside of the block scope of the loop.
+      Variable is declared outside of \`while\` loop, therefore it’s accessible outside of the block scope of the loop.
 
     `
   };

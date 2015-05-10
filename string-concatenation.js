@@ -44,7 +44,7 @@ function Glue() {
 
       __Answer: \`"${randomWord}"\`.__
 
-      Concatenation operator \`+\` simply joins the two strings into one.
+      Concatenation operator \`+\` joins the two strings into one.
 
     `
   };
@@ -86,7 +86,7 @@ function SingleSpace() {
 
       __Answer: \`"${randomPhrase}"\`.__
 
-      Concatenation operator \`+\` simply joins all the strings. Mind the empty space \`" "\`.
+      Concatenation operator \`+\` joins all three strings. Mind the empty space \`" "\`.
 
     `
   };
@@ -118,7 +118,7 @@ function MultipleSpace() {
 
         __Answer: \`"${randomPhrase}"\`.__
 
-        Concatenation operator \`+\` simply joins all the strings. Mind the empty space \`" "\`.
+        Concatenation operator \`+\` joins all strings together. Mind the empty space \`" "\`.
 
     `
   };
@@ -176,7 +176,7 @@ function PlaceholderName() {
   return {
     problem: `
 
-      What's the result of string concatenation goes into console?
+      What result of string concatenation goes into console?
 
           var name = "${randomName}";
           console.log("Hello, " + name + "!");
@@ -199,7 +199,7 @@ function PlaceholderName() {
 
       __Answer: \`"Hello, ${randomName}!"\`.__
 
-      Variable \`name\` store the value of \`"${randomName}"\`. We can rewrite the resulting expression as \`"Hello, " + "${randomName}" + "!"\` and then simply join all the strings. Mind the empty space after word \`"Hello"\`.
+      Variable \`name\` stores the value of \`"${randomName}"\`. The resulting expression can be expressed as \`"Hello, " + "${randomName}" + "!"\` and it will join all strings together. Mind the empty space after word \`"Hello"\`.
 
     `
   };
@@ -213,7 +213,7 @@ function PlaceholderResult() {
   return {
     problem: `
 
-      What's the result of string concatenation goes into console?
+      What result of string concatenation goes into console?
 
           var result = ${a} + ${b};
           console.log("The result is: " + result);
@@ -235,7 +235,7 @@ function PlaceholderResult() {
 
       __Answer: \`"The result is: ${a + b}"\`.__
 
-      Variable \`result\` store the value of result of an expression \`${a} + ${b}\` that computes to \`${a + b}\`. We can rewrite the resulting expression as \`"The result is: " + result\` and then simply join both strings into one. Mind the empty space after word "is".
+      Variable \`result\` stores the value of the result of the expression \`${a} + ${b}\` that computes to \`${a + b}\`. The resulting expression can be expressed as \`"The result is: " + result\` and it will join both strings into one. Mind the empty space after word "is".
 
     `
   };

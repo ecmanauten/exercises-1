@@ -4,7 +4,7 @@
 
 _We are going to build a platform for creating and distributing online courses on programming based on reusable blocks of knowledge._
 
-This is a repository of JavaScript exercises published on [Mosaic.academy](http://mosaic.academy). Pull requests are welcome. API is pretty much in progress. If you have any questions, write me via [Twitter](https://twitter.com/surganov). Also, take look at [exercises' wiki](https://github.com/mosaic-academy/exercises/wiki/Home.md).
+This is a repository of JavaScript exercises published on [Mosaic.academy](http://mosaic.academy). Pull requests are welcome. API is pretty much in progress. If you have any questions, write me via [Twitter](https://twitter.com/surganov). Also, take look at [exercises' wiki](https://github.com/mosaic-academy/exercises/wiki/Home).
 
 ## Methodology
 1. [Break into pieces](https://github.com/mosaic-academy/exercises/wiki/Home.md)

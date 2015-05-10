@@ -36,7 +36,7 @@ function Numbers() {
 
       __Answer: \`${answer}\`.__
 
-      This is numerical inequality that works the same way as in math.
+      This is numerical inequality that works the same way as it works in math.
 
     `
   };
@@ -73,7 +73,7 @@ function NumberExpressions() {
 
       __Answer: \`${answer}\`.__
 
-      Operator \`+\` have higher precedence than \`${op}\`, so this expression computes to \`${a} ${op} ${b + c}\` first, which is numerical inequality that works the same way as in math.
+      Operator \`+\` has higher precedence than \`${op}\`, so this expression computes to \`${a} ${op} ${b + c}\` first, which is numerical inequality that works the same way as it works in math.
 
     `
   };
@@ -115,7 +115,7 @@ function ToxicNaN() {
 
       __Answer: \`false\`.__
 
-      \`NaN\` is toxic, so if either operand is (or converts to) \`NaN\`, then the comparison operator always returns \`false\`.
+      \`NaN\` is toxic, so if either operand is equal to or converts to \`NaN\` then the comparison operator always returns \`false\`.
 
     `
   };
@@ -248,7 +248,7 @@ function NumbersAndStringNumbers() {
     solution: `
       __Answer: \`${answer}\`.__
 
-      The comparison operators favor numbers and try to convert strings to numbers if this necessary. So, we can interpret this expression as \`${a} ${op} ${b}\`.
+      The comparison operators favor numbers and try to convert strings to numbers if it is necessary. So, this expression can be interpreted as \`${a} ${op} ${b}\`.
     `
   };
 }
@@ -287,7 +287,7 @@ function NumbersAndStrings() {
 
       __Answer: \`false\`.__
 
-      The comparison operators favor numbers and try to convert strings to numbers if this necessary. Non-numerical strings as \`${str}\` converts to \`NaN\`. If either operand is (or converts to) \`NaN\`, then the comparison operator always returns \`false\`.
+      The comparison operators favor numbers and try to convert strings to numbers if it is necessary. Non-numerical strings as \`${str}\` convert to \`NaN\`. If either operand is equal to or converts to \`NaN\` then the comparison operator always returns \`false\`.
 
     `
   };
@@ -344,7 +344,7 @@ function Strings() {
 
       __Answer: \`${answer}\`.__
 
-      The comparison operators favor numbers and only perform string comparison if both operands are strings. Strings are compared using alphabetical order, where “alphabetical order” is defined by the numerical order of the Unicode values (e. g. capital \`"A"\` is “smaller” than lowercase \`"a"\`).
+      The comparison operators favor numbers and only perform string comparison if both operands are strings. Strings are compared using alphabetical order, where “alphabetical order” is defined by the numerical order of the Unicode values (e.g. capital \`"A"\` is “smaller” than lowercase \`"a"\`).
 
     `
   };

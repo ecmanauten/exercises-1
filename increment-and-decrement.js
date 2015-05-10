@@ -40,7 +40,7 @@ function SimpleIncrement() {
           var ${i} = ${n};
           ${increment};
 
-      Which value is stored in variable \`${i}\`?
+      What value is stored in variable \`${i}\`?
 
       {{ input }}
 
@@ -52,7 +52,7 @@ function SimpleIncrement() {
 
       __Answer: \`${n + 1}\`.__
 
-      This is an example of incrementing (\`${increment}\`) the value of the variable \`${i}\`.
+      This is an example of incrementing (\`${increment}\`) of the value of the variable \`${i}\`.
 
     `
   };
@@ -70,7 +70,7 @@ function SimpleDecrement() {
           var ${i} = ${n};
           ${decrement};
 
-      Which value is stored in variable \`${i}\`?
+      What value is stored in variable \`${i}\`?
 
       {{ input }}
 
@@ -82,7 +82,7 @@ function SimpleDecrement() {
 
       __Answer: \`${n - 1}\`.__
 
-      This is an example of decrementing (\`${decrement}\`) the value of the variable \`${i}\`.
+      This is an example of decrementing (\`${decrement}\`) of the value of the variable \`${i}\`.
 
     `
   };
@@ -102,7 +102,7 @@ function DoubleIncrement() {
           ${inc1};
           ${inc2};
 
-      Which value is stored in variable \`${i}\`?
+      What value is stored in variable \`${i}\`?
 
       {{ input }}
 
@@ -114,7 +114,7 @@ function DoubleIncrement() {
 
       __Answer: \`${n + 2}\`.__
 
-      This is an example of double incrementing (\`${inc1}\` and \`${inc2}\`) the value of the variable \`${i}\`.
+      This is an example of double incrementing (\`${inc1}\` and \`${inc2}\`) of the value of the variable \`${i}\`.
 
     `
   };
@@ -134,7 +134,7 @@ function PlusMinus() {
           ${inc};
           ${dec};
 
-      Which value is stored in variable \`${i}\`?
+      What value is stored in variable \`${i}\`?
 
       {{ input }}
 
@@ -146,7 +146,7 @@ function PlusMinus() {
 
       __Answer: \`${n}\`.__
 
-      This is an example of both incrementing (\`${inc}\`) and decrementing (\`${dec}\`) the value of the variable \`${i}\`. The resulting value remains the same.
+      This is an example of incrementing (\`${inc}\`) and then decrementing (\`${dec}\`) of the value of the variable \`${i}\`. The resulting value is equal to the initial one.
 
     `
   };

@@ -32,7 +32,7 @@ function Add() {
 
       __Answer: \`${a + b}\`.__
 
-      Addition operator \`+\` works the same way as in math.
+      Addition operator \`+\` works the same way as it works in math.
 
     `
   };
@@ -62,7 +62,7 @@ function Sub() {
 
       __Answer: \`${a - b}\`.__
 
-      Subtraction operator \`-\` works the same way as in math.
+      Subtraction operator \`-\` works the same way as it works in math.
 
     `
   };
@@ -92,7 +92,7 @@ function Mult() {
 
       __Answer: \`${a * b}\`.__
 
-      Multiplication operator \`*\` works the same way as in math.
+      Multiplication operator \`*\` works the same way as it works in math.
 
     `
   };
@@ -122,7 +122,7 @@ function Div() {
 
       __Answer: \`${a / b}\`.__
 
-      Division operator \`/\` works the same way as in math.
+      Division operator \`/\` works the same way as it works in math.
 
     `
   };
@@ -244,7 +244,7 @@ function Float() {
 
       __Answer: \`${a + b}\`.__
 
-      Addition operator \`+\` works the same way as in math, including floating point numbers (e.g. ${b}).
+      Addition operator \`+\` works the same way as it works in math, including floating point numbers (e.g. ${b}).
 
     `
   };
@@ -286,7 +286,7 @@ function InfinityResult() {
 
       __Answer: \`Infinity\`.__
 
-      In JavaScript division by zero yields positive or negative \`Infinity\`.
+      In JavaScript, division by zero yields positive or negative \`Infinity\`.
 
     `
   };

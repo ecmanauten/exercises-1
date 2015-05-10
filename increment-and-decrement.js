@@ -5,39 +5,42 @@
 
 'use strict';
 
+import list from 'list-of-lists';
+import rnd from './utils/rnd';
+
 
 // helper functions
 function increments(i) {
   return [
-    `${i} = ${i} + 1;`,
-    `${i} += 1;`,
-    `${i}++;`,
-    `++${i};`
+    `${i} = ${i} + 1`,
+    `${i} += 1`,
+    `${i}++`,
+    `++${i}`
   ];
 }
 
 function decrements(i) {
   return [
-    `${i} = ${i} - 1;`,
-    `${i} -= 1;`,
-    `${i}--;`,
-    `--${i};`
+    `${i} = ${i} - 1`,
+    `${i} -= 1`,
+    `${i}--`,
+    `--${i}`
   ];
 }
 
 
 function SimpleIncrement() {
-  const i = this.rnd(this.list.letters);
-  const n = this.rnd(0, 10);
-  const increment = this.rnd(increments(i));
+  const i = list.letters();
+  const n = rnd(0, 10);
+  const increment = rnd(increments(i));
 
   return {
     problem: `
 
           var ${i} = ${n};
-          ${increment}
+          ${increment};
 
-      Which value stored in variable \`${i}\`?
+      Which value is stored in variable \`${i}\`?
 
       {{ input }}
 
@@ -49,23 +52,25 @@ function SimpleIncrement() {
 
       __Answer: \`${n + 1}\`.__
 
+      This is an example of incrementing (\`${increment}\`) the value of the variable \`${i}\`.
+
     `
   };
 }
 
 
 function SimpleDecrement() {
-  const i = this.rnd(this.list.letters);
-  const n = this.rnd(-10, 10);
-  const decrement = this.rnd(decrements(i));
+  const i = list.letters();
+  const n = rnd(-10, 10);
+  const decrement = rnd(decrements(i));
 
   return {
     problem: `
 
           var ${i} = ${n};
-          ${decrement}
+          ${decrement};
 
-      Which value stored in variable \`${i}\`?
+      Which value is stored in variable \`${i}\`?
 
       {{ input }}
 
@@ -77,25 +82,27 @@ function SimpleDecrement() {
 
       __Answer: \`${n - 1}\`.__
 
+      This is an example of decrementing (\`${decrement}\`) the value of the variable \`${i}\`.
+
     `
   };
 }
 
 
 function DoubleIncrement() {
-  const i = this.rnd(this.list.letters);
-  const n = this.rnd(0, 10);
-  const inc1 = this.rnd(increments(i));
-  const inc2 = this.rnd(increments(i));
+  const i = list.letters();
+  const n = rnd(0, 10);
+  const inc1 = rnd(increments(i));
+  const inc2 = rnd(increments(i));
 
   return {
     problem: `
 
           var ${i} = ${n};
-          ${inc1}
-          ${inc2}
+          ${inc1};
+          ${inc2};
 
-      Which value stored in variable \`${i}\`?
+      Which value is stored in variable \`${i}\`?
 
       {{ input }}
 
@@ -107,25 +114,27 @@ function DoubleIncrement() {
 
       __Answer: \`${n + 2}\`.__
 
+      This is an example of double incrementing (\`${inc1}\` and \`${inc2}\`) the value of the variable \`${i}\`.
+
     `
   };
 }
 
 
 function PlusMinus() {
-  const i = this.rnd(this.list.letters);
-  const n = this.rnd(0, 10);
-  const inc = this.rnd(increments(i));
-  const dec = this.rnd(decrements(i));
+  const i = list.letters();
+  const n = rnd(0, 10);
+  const inc = rnd(increments(i));
+  const dec = rnd(decrements(i));
 
   return {
     problem: `
 
           var ${i} = ${n};
-          ${inc}
-          ${dec}
+          ${inc};
+          ${dec};
 
-      Which value stored in variable \`${i}\`?
+      Which value is stored in variable \`${i}\`?
 
       {{ input }}
 
@@ -136,6 +145,8 @@ function PlusMinus() {
     solution: `
 
       __Answer: \`${n}\`.__
+
+      This is an example of both incrementing (\`${inc}\`) and decrementing (\`${dec}\`) the value of the variable \`${i}\`. The resulting value remains the same.
 
     `
   };

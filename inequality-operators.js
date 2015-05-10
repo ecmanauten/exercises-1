@@ -36,6 +36,8 @@ function Numbers() {
 
       __Answer: \`${answer}\`.__
 
+      This is numerical inequality that works the same way as in math.
+
     `
   };
 }
@@ -70,6 +72,8 @@ function NumberExpressions() {
     solution: `
 
       __Answer: \`${answer}\`.__
+
+      Operator \`+\` have higher precedence than \`${op}\`, so this expression computes to \`${a} ${op} ${b + c}\` first, which is numerical inequality that works the same way as in math.
 
     `
   };
@@ -155,7 +159,7 @@ function PlusMinusZero() {
     solution: `
       __Answer: \`${answer}\`.__
 
-      \`${a}\` and \`${b}\` are considered equal.
+      \`${a}\` and \`${b}\` are considered equal in JavaScript.
     `
   };
 }

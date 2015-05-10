@@ -32,6 +32,8 @@ function Add() {
 
       __Answer: \`${a + b}\`.__
 
+      Addition operator \`+\` works the same way as in math.
+
     `
   };
 }
@@ -59,6 +61,8 @@ function Sub() {
     solution: `
 
       __Answer: \`${a - b}\`.__
+
+      Subtraction operator \`-\` works the same way as in math.
 
     `
   };
@@ -88,6 +92,8 @@ function Mult() {
 
       __Answer: \`${a * b}\`.__
 
+      Multiplication operator \`*\` works the same way as in math.
+
     `
   };
 }
@@ -115,6 +121,8 @@ function Div() {
     solution: `
 
       __Answer: \`${a / b}\`.__
+
+      Division operator \`/\` works the same way as in math.
 
     `
   };
@@ -145,6 +153,8 @@ function Precedence() {
 
       __Answer: \`${c + a * b}\`.__
 
+      The multiplication operator \`*\` has higher precedence than the addition operator \`+\` and thus will be evaluated first.
+
     `
   };
 }
@@ -174,12 +184,14 @@ function Parenthesis() {
 
       __Answer: \`${(a + b) * c}\`.__
 
+      The expression in parenthesis \`(${a} + ${b})\` has higher precedence than the multiplication operator \`*\` and thus will be evaluated first.
+
     `
   };
 }
 
 
-function Mod() {
+function Remainder() {
   const b = this.rnd(2, 6);
   const a = (b * (this.rnd(1, 5))) + (this.rnd(1, 5));
 
@@ -199,7 +211,11 @@ function Mod() {
     widgets: { input: this.input(`${a % b}`) },
 
     solution: `
+
       __Answer: \`${a % b}\`.__
+
+      The \`%\` returns the remainder after whole-number division of the first operand by the second operand.
+
     `
   };
 }
@@ -227,6 +243,8 @@ function Float() {
     solution: `
 
       __Answer: \`${a + b}\`.__
+
+      Addition operator \`+\` works the same way as in math, including floating point numbers (e.g. ${b}).
 
     `
   };
@@ -268,6 +286,8 @@ function InfinityResult() {
 
       __Answer: \`Infinity\`.__
 
+      In JavaScript division by zero yields positive or negative \`Infinity\`.
+
     `
   };
 }
@@ -304,6 +324,8 @@ function NaNResult() {
 
       __Answer: \`NaN\`.__
 
+      Non-numeric operands that cannot convert to numbers convert to the \`NaN\` value. If either operand is (or converts to) \`NaN\`, the result of the operation is also \`NaN\`.
+
     `
   };
 }
@@ -317,7 +339,7 @@ export default [
   [Div, 1],
   [Precedence, 1],
   [Parenthesis, 2],
-  [Mod, 2],
+  [Remainder, 2],
   [Float, 1],
   [InfinityResult, 2],
   [NaNResult, 2]

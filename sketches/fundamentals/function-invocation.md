@@ -1,4 +1,4 @@
-Function Invocation
+Function invocation
 ===================
 
 Calling function without arguments:
@@ -15,7 +15,8 @@ Calling function with one argument:
 
 Calling function with two arguments:
 
-    max(3, 4)
+    max(3, 4) // 3
+    add(3, 4) // 7
 
 
 Calling function with the result of calling of another function:

@@ -1,49 +1,49 @@
 # Fundamentals
 
 ### Literals
-- Primitive datatypes :white_check_mark:
-- Number literal
-- String literal
-- Object literal
-- Array literal
+- [x] Primitive datatypes
+- [ ] Number literal
+- [ ] String literal
+- [ ] Object literal
+- [ ] Array literal
 
 ### Statements
-- Variable declaration :white_check_mark:
-- Increment and decrement :white_check_mark:
-- While loop
-- If/else statement
-- For loop
+- [x] Variable declaration
+- [x] Increment and decrement
+- [ ] While loop
+- [ ] If/else statement
+- [ ] For loop
 
 ### Expressions
-- String concatenation :white_check_mark:
-- Math operators :white_check_mark:
-- Inequality operators :white_check_mark:
-- Logic Expressions
-- Falsy values
-- Operators properties
+- [x] String concatenation
+- [x] Math operators
+- [x] Inequality operators
+- [ ] Logic Expressions
+- [ ] Falsy values
+- [ ] [Operator properties](https://github.com/mosaic-academy/exercises/blob/master/sketches/fundamentals/operator-properties.md)
 
 ### Functions
-- Function invocation
-- Function declaration
-- Functions and methods
+- [ ] [Function invocation](https://github.com/mosaic-academy/exercises/blob/master/sketches/fundamentals/function-invocation.md)
+- [ ] Function declaration
+- [ ] Functions and methods
 
 ### Standard library
-- Math object
-- Array methods
-- String methods
+- [ ] Math object
+- [ ] Array methods
+- [ ] [String methods](https://github.com/mosaic-academy/exercises/blob/master/sketches/fundamentals/string-methods.md)
 
 
 # ECMAScript 6 & 7
 
 ## Exercises
 ### Hottest
-- [[ Let/Const | let-and-const ]] :white_check_mark:
-- [[ Template strings | template-strings ]] :white_check_mark:
-- [[ Enhanced object literal | object-literal-es6 ]] :white_check_mark:
-- [[ Arrow functions | arrow-functions ]]
-- [[ Modules | modules ]]
-- [[ Destructuring | destructuring ]]
-- [[ Default + rest + spread | default-rest-spread ]]
+- [x] [Let/Const](https://github.com/mosaic-academy/exercises/blob/master/sketches/es6/let-and-const)
+- [x] [Template strings](https://github.com/mosaic-academy/exercises/blob/master/sketches/es6/template-strings)
+- [x] [Enhanced object literal](https://github.com/mosaic-academy/exercises/blob/master/sketches/es6/object-literal-es6)
+- [ ] [Arrow functions](https://github.com/mosaic-academy/exercises/blob/master/sketches/es6/arrow-functions.md)
+- [ ] [Modules](https://github.com/mosaic-academy/exercises/blob/master/sketches/es6/modules)
+- [ ] [Destructuring](https://github.com/mosaic-academy/exercises/blob/master/sketches/es6/destructuring)
+- [ ] [Default + rest + spread](https://github.com/mosaic-academy/exercises/blob/master/sketches/es6/default-rest-spread)
 
 ### The Rest
 - Async functions

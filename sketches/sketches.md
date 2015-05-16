@@ -32,6 +32,7 @@
 - [ ] Array methods
 - [ ] [String methods](https://github.com/mosaic-academy/exercises/blob/master/sketches/fundamentals/string-methods.md)
 
+http://www.codecademy.com/glossary/javascript
 
 # ECMAScript 6 & 7
 

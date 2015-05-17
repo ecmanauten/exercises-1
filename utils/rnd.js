@@ -5,6 +5,14 @@
 
 'use strict';
 
+/**
+ * TODO
+ * 
+ * use `npm install random-js`
+ * https://github.com/ckknight/random-js
+ */
+
+
 
 /**
  * Random utility library
@@ -45,6 +53,7 @@ function randomElements(array, n) {
     if (m) {
       const k = getRandomInt(0, arr.length-1);
       acc.push(arr[k]);
+      // recurse
       return iter(acc, arr.filter((el, i) => i !== k), m-1);
     } else {
       return acc;

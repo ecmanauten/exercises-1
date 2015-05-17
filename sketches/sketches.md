@@ -5,19 +5,20 @@
 - [ ] Number literal
 - [ ] String literal
 - [ ] Object literal
-- [ ] Array literal
+- [ ] [Array literal](https://github.com/mosaic-academy/exercises/blob/master/sketches/fundamentals/array-literal.md)
 
 ### Statements
 - [x] Variable declaration
 - [x] Increment and decrement
 - [ ] While loop
-- [ ] If/else statement
+- [ ] [If/else statement](https://github.com/mosaic-academy/exercises/blob/master/sketches/fundamentals/if-else-statetement.md)
 - [ ] For loop
 
 ### Expressions
 - [x] String concatenation
 - [x] Math operators
 - [x] Inequality operators
+- [ ] Equality operators
 - [ ] Logic Expressions
 - [ ] Falsy values
 - [ ] [Operator properties](https://github.com/mosaic-academy/exercises/blob/master/sketches/fundamentals/operator-properties.md)

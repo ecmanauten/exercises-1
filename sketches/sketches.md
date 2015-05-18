@@ -1,5 +1,7 @@
 # Fundamentals
 
+_Programming is decomposition_
+
 ### Literals
 - [x] Primitive datatypes
 - [ ] Number literal
@@ -21,6 +23,7 @@
 - [ ] Equality operators
 - [ ] Logic Expressions
 - [ ] Falsy values
+- [ ] [Expressions and statements](https://github.com/mosaic-academy/exercises/blob/master/sketches/fundamentals/expressions-and-statements.md)
 - [ ] [Operator properties](https://github.com/mosaic-academy/exercises/blob/master/sketches/fundamentals/operator-properties.md)
 
 ### Functions
@@ -30,7 +33,7 @@
 
 ### Standard library
 - [ ] Math object
-- [ ] Array methods
+- [ ] [Array methods](https://github.com/mosaic-academy/exercises/blob/master/sketches/fundamentals/array-methods.md)
 - [ ] [String methods](https://github.com/mosaic-academy/exercises/blob/master/sketches/fundamentals/string-methods.md)
 
 http://www.codecademy.com/glossary/javascript

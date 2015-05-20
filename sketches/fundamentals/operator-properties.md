@@ -33,3 +33,21 @@ See also:
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Expressions_and_Operators
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators
 
+
+## Blueprint
+
+Unary, prefix
+`-` `+` `!` `typeof` `++` `--`
+
+Unary, postfix
+`++` `--`
+
+Binary, infix
+`-` `+` `*` `/` `%`
+`<` `<=` `>` `>=`
+`===` `!==`
+`&&` `||`
+`=` `+=` `-=` `*=` `/=` `%=`
+
+Ternary
+`?:`

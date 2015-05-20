@@ -32,7 +32,7 @@ _Programming is decomposition_
 - [ ] Functions and methods
 
 ### Standard library
-- [ ] Math object
+- [ ] [Math object](https://github.com/mosaic-academy/exercises/blob/master/sketches/fundamentals/math-object.md)
 - [ ] [Array methods](https://github.com/mosaic-academy/exercises/blob/master/sketches/fundamentals/array-methods.md)
 - [ ] [String methods](https://github.com/mosaic-academy/exercises/blob/master/sketches/fundamentals/string-methods.md)
 

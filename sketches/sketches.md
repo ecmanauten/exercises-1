@@ -12,7 +12,7 @@ _Programming is decomposition_
 ### Statements
 - [x] Variable declaration
 - [x] Increment and decrement
-- [ ] While loop
+- [ ] [While loop](https://github.com/mosaic-academy/exercises/blob/master/sketches/fundamentals/while-loop.md)
 - [ ] [If/else statement](https://github.com/mosaic-academy/exercises/blob/master/sketches/fundamentals/if-else-statetement.md)
 - [ ] For loop
 
@@ -20,7 +20,7 @@ _Programming is decomposition_
 - [x] String concatenation
 - [x] Math operators
 - [x] Inequality operators
-- [ ] Equality operators
+- [ ] [Equality operators](https://github.com/mosaic-academy/exercises/blob/master/sketches/fundamentals/equality-operators.md)
 - [ ] Logic Expressions
 - [ ] Falsy values
 - [ ] [Expressions and statements](https://github.com/mosaic-academy/exercises/blob/master/sketches/fundamentals/expressions-and-statements.md)
@@ -28,8 +28,14 @@ _Programming is decomposition_
 
 ### Functions
 - [ ] [Function invocation](https://github.com/mosaic-academy/exercises/blob/master/sketches/fundamentals/function-invocation.md)
-- [ ] Function declaration
+- [ ] [Function declaration](https://github.com/mosaic-academy/exercises/blob/master/sketches/fundamentals/function-declaration.md)
 - [ ] Functions and methods
+- [ ] Closure
+- [ ] Recursion
+- [ ] Callback pattern
+- [ ] Method chaining
+- [ ] Currying
+- [ ] Memoization
 
 ### Standard library
 - [ ] [Math object](https://github.com/mosaic-academy/exercises/blob/master/sketches/fundamentals/math-object.md)
@@ -37,6 +43,7 @@ _Programming is decomposition_
 - [ ] [String methods](https://github.com/mosaic-academy/exercises/blob/master/sketches/fundamentals/string-methods.md)
 
 http://www.codecademy.com/glossary/javascript
+
 
 # ECMAScript 6 & 7
 

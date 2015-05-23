@@ -5,14 +5,7 @@
 
 'use strict';
 
-/**
- * TODO
- * 
- * use `npm install random-js`
- * https://github.com/ckknight/random-js
- */
-
-
+import Random from 'random-js';
 
 /**
  * Random utility library
@@ -39,9 +32,11 @@ export default function rnd(...args) {
   }
 };
 
+const engine = Random.engines.nativeMath;
 
 function getRandomInt(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
+  // the only dependency
+  return Random.integer(min, max)(engine);
 }
 
 function randomElement(array) {

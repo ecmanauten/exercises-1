@@ -6,6 +6,10 @@
 'use strict';
 
 
+function wrapToCodeBlock(option) {
+  return `\`\`\`${ option }\`\`\``;
+}
+
 export default {
 
   radio(answer, options = []) {
@@ -23,7 +27,7 @@ export default {
       type: 'Radio',
       props: {
         answer: `\`\`\`${answer}\`\`\``,
-        options: options.map(option => `\`\`\`${ option }\`\`\``)
+        options: options.map(wrapToCodeBlock)
       }
     };
   },
@@ -47,6 +51,16 @@ export default {
       props: {
         answers: answers,
         options: options
+      }
+    };
+  },
+
+  checkCode(answers, options) {
+    return {
+      type: 'Check',
+      props: {
+        answers: answers.map(wrapToCodeBlock),
+        options: options.map(wrapToCodeBlock)
       }
     };
   },

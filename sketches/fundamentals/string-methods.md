@@ -25,11 +25,11 @@ String methods
   - `.toUpperCase()`
   - `.charAt()`
   - `.charCodeAt()`
+- property
+  - `.length`
 - search
   - `.indexOf()`
   - `.lastIndexOf()`
-- property
-  - `.length`
 - regexp patterns
   - `.test()`
   - `.search()`
@@ -37,3 +37,124 @@ String methods
 
 See also:
 - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/prototype
+
+
+## Blueprint
+
+- manipulations
+  - `.replace()`
+  - `.slice()`
+  - `.substr()`
+  - `.trim()`
+  - `.concat()`
+- char manipulation
+  - `.toLowerCase()`
+  - `.toUpperCase()`
+  - `.charAt()`
+
+
+### Two form of questions
+
+What's the returning value of this expression?
+
+    'boing'.length
+
+Which value will print to the console?
+
+    var vehicle = 'boing';
+    console.log(vehicle.length);
+
+
+### .length property
+    'boing'.length
+
+{{ 5 }}
+
+> short words from 6 and under
+
+
+### charAt
+
+    'market'.charAt(3)
+
+- k
+- r
+- e
+- t
+- a
+
+> word with 5 and more chars
+
++ char out of range
++ zero char
++ last char (length-1)
+
+
+### toLowerCase / toUpperCase
+
+    'Capital Case'.toLowerCase()
+
+- 'capital case'
+- 'CAPITAL CASE'
+- 'Capital case'
+- 'Capital Case'
+
+> two words
+
++ all caps `'ABC'.toUpperCase()`, lowercase `'abc'.toLowerCase()`
+
+
+### trim
+
+    '  trim it'.trim()
+
+- 'trim it'
+- 'trimit'
+- ' trim'
+- 'trim'
+
+> left, right, or both
+
+
+### replace
+. -> ,
+1 -> one
+! -> ?
+a -> b
+__ -> _
+
+    '16,000,000'.replace(',', '.')
+
+- '16.000.000'
+- '16,000,000'
+- '16.000,000'
+- '16,000.000'
+
+tricky
+
+    'ABBA'.replace('a', 'b')
+
+
+### split
+- by space ` `
+- comma `,`
+- nothing `''`
+- end of line `\n`
+
+
+### concat
+    'abc'.concat('def')
+    // 'abcdef'
+
+    'Hello, '.concat('Kevin')
+
+
+### slice
+    'abc'.slice(1) // 'bc'
+
+    'abcd'.slice(0, 2) // 'abc'
+
+    var str1 = 'The morning is upon us.';
+    var str2 = str1.slice(4, -1);
+    // 'The morning is upon us'
+

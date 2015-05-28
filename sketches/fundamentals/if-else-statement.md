@@ -61,9 +61,17 @@ Single `if` statetement:
 http://www.codecademy.com/glossary/javascript/if-statement
 
 
+    if (num < 10)
+      alert("Small");
+    else if (num < 100)
+      alert("Medium");
+    else
+      alert("Large");
+
+
 ## Blueprint
 
-_No side-effects and outside dependencies._
+_No side-effects and outside dependencies?_
 
 ### SingleIfTrue
 Will the statement be printed to the console?
@@ -81,7 +89,20 @@ Will the statement be printed to the console?
 - no
 - SyntaxError
 
-true, typeof 'foo' === 'String', 12 < 55, 42, "abc"
+> true, typeof 'foo' === 'String', 12 < 55, 42, "abc"
+
+
+### ~~SingleIfTrue2~~
+What value is stored in variable `x` after running this code?
+
+    var x = 0;
+    if (x > 0) {
+      x = 1;
+    }
+
+- 0
+- 1
+
 
 ### SingleIfFalse
     if (false) {
@@ -92,9 +113,10 @@ true, typeof 'foo' === 'String', 12 < 55, 42, "abc"
 - no
 - SyntaxError
 
-null, undefined, '', 0, -0, NaN
+> null, undefined, '', 0, -0, NaN
 
-### SingleIfError
+
+### SingleIfErrorParens
     if true {
       console.log('True!');
     }
@@ -103,12 +125,13 @@ null, undefined, '', 0, -0, NaN
 - no
 - SyntaxError
 
+
 ### SingleIfMultipleStatements
 
 What value is stored in variable `x` after running this code?
 
-    x = 0;
-    if (x > 0)
+    var x = 0;
+    if (false)
       x = x + 1;
       x = x + 1;
 
@@ -117,10 +140,59 @@ What value is stored in variable `x` after running this code?
 - 2
 - SyntaxError
 
+true/false variation
 
-### IfElse
-    if (true) {
-      123
+
+### ~~IfElse~~
+    var x = 5;
+    if (x < 10) {
+      console.log('small');
     } else {
-      123
+      console.log('large');
+    }
+
+- 'small'
+- 'large'
+- no message
+
+
+like in `single if` problem
+
+    if (true) {
+      console.log('true');
+    } else {
+      console.log('false');
+    }
+
+- 'true'
+- 'false'
+- no message
+
+
+### IfElseIfElse
+    var x = 20;
+    if (x < 10) {
+      console.log('small');
+    } else if (x < 20) {
+      console.log('medium');
+    } else {
+      console.log('large');
+    }
+
+- 'small'
+- 'medium'
+- 'large'
+- no message
+
+
+### ~~IfElseIfElse~~
+    var x = 'needle';
+    if (typeof x === 'string') {
+      if (x === 'needle') {
+        console.log('needle');
+      } else {
+        console.log('hay');
+      }
+    } else {
+      console.log('error');
     }

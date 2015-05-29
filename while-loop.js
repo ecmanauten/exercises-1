@@ -423,7 +423,7 @@ function FalseCondition() {
 
 
 export default [
-  'While Loop',
+  'While loop',
   [MissingCondition, 1],
   [HowManyIterations, 1],
 

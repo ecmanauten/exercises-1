@@ -70,22 +70,6 @@ What will this code output?
 - hi, bye
 
 
-### FalseCondition
-What will this code output?
-
-    var i = 0;
-    while (i < 0) {
-      console.log('hi');
-    }
-
-- Nothing
-- Infinite loop
-- `RangeError`
-- `hi`
-
-> `<`, `>` and other false conditions
-
-
 ### DoubleCounter
 What will this code output?
 
@@ -105,8 +89,23 @@ What will this code output?
 
 ---
 
+### FalseCondition
+What will this code output?
 
-### InfiniteLoop1
+    var i = 0;
+    while (i < 0) {
+      console.log('hi');
+    }
+
+- Nothing
+- Infinite loop
+- `RangeError`
+- `hi`
+
+> `<`, `>` and other false conditions
+
+
+### InfiniteLoop1 DONE
 
 What will this code output?
 
@@ -121,7 +120,7 @@ What will this code output?
 - `RangeError`
 
 
-### InfiniteLoop2
+### InfiniteLoop2 DONE
 
 What will this code output?
 

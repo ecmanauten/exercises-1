@@ -35,23 +35,8 @@ function getFalsy() {
   ]);
 }
 
-function printMe() {
-  return rnd([
-    'Hello, World!',
-    'Print me!',
-    'True',
-    'False',
-    'Message',
-    'Result',
-    'Hi',
-    'Ok',
-    'I’m here',
-    'Hello'
-  ]);
-}
-
 function getCode(problem) {
-  const msg = printMe();
+  const msg = list.printMe();
   let l = '(', r = ')';
   let cond = '';
 

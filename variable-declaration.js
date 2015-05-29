@@ -17,7 +17,7 @@ function SimpleDeclaration1() {
     problem: `
 
           var ${varName};
-          name = "${name}";
+          ${varName} = "${name}";
 
       What value is stored in variable \`${varName}\`?
 

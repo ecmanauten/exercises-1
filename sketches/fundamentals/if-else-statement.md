@@ -85,6 +85,8 @@ Will the statement be printed to the console?
 
     if (true) console.log('True!');
 
+    if (true) { console.log('True!') }
+
 - yes
 - no
 - SyntaxError

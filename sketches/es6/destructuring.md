@@ -24,6 +24,7 @@ Destructuring assignment
 - http://www.2ality.com/2015/03/destructuring-algorithm.html
 - http://www.2ality.com/2015/01/es6-destructuring.html
 
+https://hacks.mozilla.org/2015/05/es6-in-depth-destructuring/
 
 ## Rags and Bones
 - http://ariya.ofilabs.com/2013/02/es6-and-destructuring-assignment.html

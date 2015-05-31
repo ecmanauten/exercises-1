@@ -18,7 +18,7 @@ function getTruthy() {
 
   return rnd([
     `true`,
-    `typeof '${str}' === 'String'`,
+    `typeof '${str}' === 'string'`,
     `${a} < ${b}`
   ]);
 }
@@ -30,7 +30,7 @@ function getFalsy() {
 
   return rnd([
     `false`, `null`, `undefined`,
-    `typeof '${str}' !== 'String'`,
+    `typeof '${str}' !== 'string'`,
     `${a} > ${b}`
   ]);
 }

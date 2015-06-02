@@ -119,7 +119,8 @@ function MinMax() {
 
 
 function Round() {
-  const n = (rnd(0, 100) + rnd(0, 9) / 10) * rnd([-1, 1, 1]);
+  // const n = (rnd(0, 100) + rnd(1, 9) / 10) * rnd([-1, 1, 1]);
+  const n = rnd(0, 100) + rnd(1, 9) / 10;
 
   const $ = rnd([
     `Math.round(${n})`,
@@ -230,11 +231,11 @@ function Constants() {
 
 export default [
   'Math object',
-  [Pow, 1],
-  [Sqrt, 1],
-  [Abs, 1],
-  [MinMax, 1],
-  [Round, 1],
+  [Pow, 2],
+  [Sqrt, 2],
+  [Abs, 3],
+  [MinMax, 3],
+  [Round, 3],
   [Other, 1],
   [Constants, 1]
 ];
